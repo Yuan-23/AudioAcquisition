@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="350dp"
+    android:layout_height="220dp"
+    android:background="@drawable/stage_bg"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:textColor="@color/yellow"
+        android:layout_gravity="center"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:textSize="20dp"
+        android:text="答题环节">
+
+    </TextView>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/theme2"
+        android:textSize="16dp"
+        android:layout_margin="5dp"
+        android:layout_gravity="center"
+        android:text="请您根据上述场景录制对话内容">
+
+    </TextView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+
+        <LinearLayout
+            android:id="@+id/dialog_start_ll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:background="@drawable/linearlayout_bg"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/dialog_start"
+                app:srcCompat="@drawable/kaishi"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                android:tint="@color/yellow">
+
+            </ImageView>
+
+            <TextView
+                android:id="@+id/dialog_start_tx"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="录音"
+                android:textColor="@color/yellow"
+                android:textSize="16dp">
+
+            </TextView>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/dialog_stop_ll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:background="@drawable/linearlayout_bg"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/dialog_stop"
+                app:srcCompat="@drawable/stop2"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                android:tint="@color/theme3">
+
+            </ImageView>
+
+            <TextView
+                android:id="@+id/dialog_stop_tx"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="完成"
+                android:textColor="@color/SlateGrey"
+                android:textSize="16dp">
+
+            </TextView>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

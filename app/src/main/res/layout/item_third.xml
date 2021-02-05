@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:tint="@color/yellow"
+            app:srcCompat="@drawable/sanjiaox">
+
+        </ImageView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="请认真观看视频并完成对话录音："
+            android:textColor="@color/theme2"
+            android:textSize="16dp">
+
+        </TextView>
+
+    </LinearLayout>
+
+    <VideoView
+        android:id="@+id/item_third_video"
+        android:layout_width="wrap_content"
+        android:layout_height="200dp"
+        android:layout_margin="10dp">
+
+    </VideoView>
+
+</LinearLayout>

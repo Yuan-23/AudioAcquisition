@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:background="@drawable/juxing"
+    android:layout_margin="10dp"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="5dp"
+        android:layout_weight="1"
+        android:tint="@color/yellow"
+        app:srcCompat="@drawable/start1">
+
+    </ImageView>
+
+    <TextView
+        android:id="@+id/item_name"
+        android:layout_margin="10dp"
+        android:layout_width="0dp"
+        android:layout_weight="5"
+        android:layout_height="wrap_content"
+        android:text="场景一：交警查酒驾"
+        android:maxLines="3"
+        android:ellipsize="end"
+        android:textSize="18dp"
+        android:textColor="@color/theme2">
+
+    </TextView>
+
+    <ImageView
+        android:id="@+id/item_image"
+        android:layout_width="0dp"
+        android:layout_marginRight="5dp"
+        android:layout_weight="1"
+        android:layout_height="25dp"
+        android:tint="@color/theme2"
+        android:layout_gravity="center_vertical"
+        app:srcCompat="@drawable/scene2">
+
+    </ImageView>
+
+
+
+</LinearLayout>

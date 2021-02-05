@@ -1,0 +1,447 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context=".Home.fragment.HorizontalFragment">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:gravity="center"
+                    android:tint="@color/yellow"
+                    app:srcCompat="@drawable/title">
+
+                </ImageView>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="5dp"
+                    android:text="音频上传需要时间，请耐心等待屏幕下方提示哦。"
+                    android:textSize="14dp"
+                    android:textColor="@color/yellow">
+
+                </TextView>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/first_ll"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/first_image"
+                    android:layout_width="30dp"
+                    android:layout_margin="10dp"
+                    android:layout_height="30dp"
+                    android:tint="@color/theme2"
+                    app:srcCompat="@drawable/zhifa">
+
+                </ImageView>
+
+                <TextView
+                    android:id="@+id/first_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="10dp"
+                    android:text="第一阶段：开始执法"
+                    android:textColor="@color/theme2"
+                    android:textSize="18dp"
+                    android:textStyle="bold">
+
+                </TextView>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:gravity="right"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:text="评分："
+                    android:textSize="16dp"
+                    android:textColor="@color/theme3"
+                    android:layout_gravity="center">
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/first_score"
+                    android:layout_width="60dp"
+                    android:textColor="@color/theme2"
+                    android:textSize="16dp"
+                    android:text="暂无"
+                    android:textStyle="italic"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:layout_marginRight="10dp"
+                    android:layout_height="wrap_content">
+
+                </TextView>
+
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/first_rv1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/viewpager_bg">
+
+            </androidx.recyclerview.widget.RecyclerView>
+
+
+            <LinearLayout
+                android:id="@+id/second_ll"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/second_image"
+                    android:layout_width="29dp"
+                    android:layout_height="27dp"
+                    android:layout_weight="1"
+                    android:tint="@color/theme2"
+                    android:layout_margin="10dp"
+                    app:srcCompat="@drawable/stop">
+
+                </ImageView>
+
+                <TextView
+                    android:id="@+id/second_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="10dp"
+                    android:text="第二阶段：遇到阻碍"
+                    android:textColor="@color/theme2"
+                    android:textSize="18dp"
+                    android:textStyle="bold">
+
+                </TextView>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:gravity="right"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:text="评分："
+                    android:textSize="16dp"
+                    android:textColor="@color/theme3"
+                    android:layout_gravity="center">
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/second_score"
+                    android:layout_width="60dp"
+                    android:textColor="@color/theme2"
+                    android:textSize="16dp"
+                    android:text="暂无"
+                    android:textStyle="italic"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:layout_marginRight="10dp"
+                    android:layout_height="wrap_content">
+
+                </TextView>
+
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/second_rv2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/viewpager_bg"
+                android:layout_margin="10dp">
+
+            </androidx.recyclerview.widget.RecyclerView>
+
+            <LinearLayout
+                android:id="@+id/third_ll"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/third_image"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_margin="10dp"
+                    android:tint="@color/theme2"
+                    app:srcCompat="@drawable/yuyin4">
+
+                </ImageView>
+
+                <TextView
+                    android:id="@+id/third_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="10dp"
+                    android:text="第三阶段：口头传唤"
+                    android:textColor="@color/theme2"
+                    android:textSize="18dp"
+                    android:textStyle="bold">
+
+                </TextView>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:gravity="right"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:text="评分："
+                    android:textSize="16dp"
+                    android:textColor="@color/theme3"
+                    android:layout_gravity="center">
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/third_score"
+                    android:layout_width="60dp"
+                    android:textColor="@color/theme2"
+                    android:textSize="16dp"
+                    android:text="暂无"
+                    android:textStyle="italic"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:layout_marginRight="10dp"
+                    android:layout_height="wrap_content">
+
+                </TextView>
+
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/third_rv3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/viewpager_bg"
+                android:layout_margin="10dp">
+
+            </androidx.recyclerview.widget.RecyclerView>
+
+            <LinearLayout
+                android:id="@+id/fourth_ll"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/fourth_image"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_margin="10dp"
+                    android:tint="@color/theme2"
+                    app:srcCompat="@drawable/jubu">
+
+                </ImageView>
+
+                <TextView
+                    android:id="@+id/fourth_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="10dp"
+                    android:text="第四阶段：强制传唤"
+                    android:textColor="@color/theme2"
+                    android:textSize="18dp"
+                    android:textStyle="bold">
+
+                </TextView>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:gravity="right"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:text="评分："
+                    android:textSize="16dp"
+                    android:textColor="@color/theme3"
+                    android:layout_gravity="center">
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/fourth_score"
+                    android:layout_width="60dp"
+                    android:textColor="@color/theme2"
+                    android:textSize="16dp"
+                    android:text="暂无"
+                    android:textStyle="italic"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:layout_marginRight="10dp"
+                    android:layout_height="wrap_content">
+
+                </TextView>
+
+            </LinearLayout>
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/fourth_rv4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/viewpager_bg">
+
+            </androidx.recyclerview.widget.RecyclerView>
+
+
+
+            <LinearLayout
+                android:id="@+id/horizontal_score_ll"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="50dp"
+                android:background="@drawable/viewpager_bg"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="25dp"
+                    android:layout_weight="1"
+                    android:tint="@color/theme2"
+                    app:srcCompat="@drawable/practice">
+
+                </ImageView>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:layout_height="match_parent"
+                    android:text="总 分："
+                    android:layout_marginLeft="5dp"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:textColor="@color/theme2"
+                    android:textSize="16dp">
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/score_total"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10dp"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    android:layout_weight="5"
+                    android:gravity="center_vertical"
+                    android:text="暂无"
+                    android:textColor="@color/theme2"
+                    android:textSize="16dp">
+
+                </TextView>
+
+                <Button
+                    android:id="@+id/ifscore_btn"
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:layout_gravity="center"
+                    android:layout_height="wrap_content"
+                    android:textSize="14dp"
+                    android:textColor="@color/yellow"
+                    android:background="@drawable/linearlayout_bg"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="7dp"
+                    android:layout_marginBottom="7dp"
+                    android:text="查看评分">
+
+                </Button>
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+
+
+    </androidx.core.widget.NestedScrollView>
+
+
+</LinearLayout>

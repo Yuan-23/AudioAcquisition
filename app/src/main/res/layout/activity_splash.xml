@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Core.activity.SplashActivity">
+
+
+    <ImageView
+        android:id="@+id/splash_bg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+        android:src="@color/theme2">
+
+    </ImageView>
+
+    <com.example.audioacquisition.Core.widget.RoundTextView
+        android:id="@+id/count_down_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:paddingStart="12dp"
+        android:paddingTop="4dp"
+        android:paddingEnd="12dp"
+        android:paddingBottom="4dp"
+        android:text="点击跳过"
+        android:textColor="@color/theme3"
+        android:textSize="16dp"
+        android:visibility="visible"
+        app:rtvBgColor="@color/theme2"
+        app:rtvRadius="6dp" >
+
+    </com.example.audioacquisition.Core.widget.RoundTextView>
+
+    <TextView
+        android:id="@+id/splash_tv1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/splash_tv2"
+        android:layout_marginBottom="40dp"
+        android:text="@string/app_name"
+        android:textStyle = "bold"
+        android:textColor="@color/white"
+        android:textSize="50dp" />
+
+    <TextView
+        android:id="@+id/splash_tv2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:text="理性平和 文明规范"
+        android:textColor="@color/white"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/splash_tv3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/splash_tv4"
+        android:text="XX企业提供服务"
+        android:textColor="@color/theme"
+        android:textSize="15dp" />
+    <TextView
+        android:id="@+id/splash_tv4"
+        android:layout_width="wrap_content"
+        android:layout_height="22dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp"
+        android:text="XXXX.com"
+        android:textColor="@color/theme3"
+        android:textSize="15dp" />
+
+</RelativeLayout>

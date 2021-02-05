@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/theme2"
+    android:orientation="vertical"
+    tools:context=".Core.fragment.HomeFragment">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="25dp"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:tint="@color/theme"
+                app:srcCompat="@drawable/gongan6">
+
+            </ImageView>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="10"
+                android:text=""
+                android:textColor="@color/theme"
+                android:textSize="20dp"
+                android:textStyle="bold">
+
+            </TextView>
+
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:tint="@color/yellow"
+                app:srcCompat="@drawable/gongan5">
+
+            </ImageView>
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/home_kind1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="20dp"
+            android:background="@drawable/white_clicked_bg">
+
+            <TextView
+                android:id="@+id/home_kind1_tx"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:textSize="18dp"
+                android:layout_margin="20dp"
+                android:background="@drawable/stage_bg"
+                android:textColor="@color/theme2"
+                android:textStyle="bold"
+                android:text="交 通 执 法 类">
+
+            </TextView>
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                app:srcCompat="@drawable/chaosu"
+                android:tint="@color/theme2"
+                android:layout_margin="20dp"
+                android:layout_gravity="center">
+
+
+            </ImageView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/home_kind2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:background="@drawable/white_clicked_bg"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/home_kind2_tx"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="20dp"
+                android:background="@drawable/stage_bg"
+                android:gravity="center"
+                android:text="治 安 刑 事 类"
+                android:textColor="@color/theme2"
+                android:textSize="18dp"
+                android:textStyle="bold">
+
+            </TextView>
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:layout_margin="20dp"
+                android:tint="@color/theme2"
+                app:srcCompat="@drawable/jubu">
+
+            </ImageView>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

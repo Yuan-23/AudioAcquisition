@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#0D90BF</color>
+    <color name="colorPrimaryDark">#0D90BF</color>
+    <color name="colorAccent">#0D90BF</color>
+
+    <color name="bottom_navigation_normal">#00574B</color>
+    <color name="gray">#BEBEBE</color>
+    <color name="SlateGrey">#708090</color>
+    <color name="black">#2c2c2c</color>
+    <color name="blue">#E8EDF6</color>
+    <color name="yellow">#EFCC27</color>
+    <color name="white">#ffffff</color>
+
+    <color name="theme">#29166F</color>
+    <color name="theme2">#0D90BF</color>
+    <color name="theme3">#C0C0C0</color>
+    <color name="snow2">#EEE9E9</color>
+    <!--    点击前后颜色-->
+    <color name="clicked">#EEE9E9</color>
+    <color name="noclick">#ffffff</color>
+</resources>
