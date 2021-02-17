@@ -1,7 +1,6 @@
 package com.example.audioacquisition.Mine.passbean;
 
-import com.example.audioacquisition.Home.bean.Scene;
-import com.example.audioacquisition.Home.bean.SceneSort;
+import com.example.audioacquisition.Practice.bean.SceneSort;
 import com.example.audioacquisition.Mine.bean.User;
 
 import java.util.List;

@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.audioacquisition.Core.bean.HomeBean;
 import com.example.audioacquisition.Core.helper.SharedPreferencesHelper;
-import com.example.audioacquisition.Home.activity.HorizontalActivity;
+import com.example.audioacquisition.Practice.activity.HorizontalActivity;
 import com.example.audioacquisition.R;
 
 import java.util.List;

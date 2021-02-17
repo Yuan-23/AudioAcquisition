@@ -26,7 +26,6 @@ public class ChangeActivity extends AppCompatActivity {
     private EditText newpsw;
     private EditText repsw;
     private TextView certain;
-    int DoctorId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

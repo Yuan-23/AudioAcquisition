@@ -10,9 +10,11 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.example.audioacquisition.Core.fragment.HomeFragment;
-import com.example.audioacquisition.Core.fragment.MineFragment;
+import com.example.audioacquisition.Core.fragment.FaxFragment;
 import com.example.audioacquisition.Core.fragment.PracticeFragment;
+import com.example.audioacquisition.Core.fragment.MineFragment;
+import com.example.audioacquisition.Core.fragment.StudyFragment;
+import com.example.audioacquisition.Core.fragment.TestFragment;
 import com.example.audioacquisition.Core.helper.BottomNavigationViewHelper;
 import com.example.audioacquisition.Core.helper.SharedPreferencesHelper;
 import com.example.audioacquisition.R;
@@ -37,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         context = this;
         if (SharedPreferencesHelper.getLoginStatus(MainActivity.this).equals(false)) {
-            Toast.makeText(MainActivity.this, "请在“我的学习”中进行登录哦", Toast.LENGTH_SHORT).show();
+            Toast.makeText(MainActivity.this, "请在“我的”中进行登录哦", Toast.LENGTH_SHORT).show();
         }
 
         initBottomNavigation();
@@ -48,10 +50,12 @@ public class MainActivity extends AppCompatActivity {
     public void initData() {
 
         mFragments = new ArrayList<>();
-        mFragments.add(new HomeFragment());
+        mFragments.add(new StudyFragment());
         mFragments.add(new PracticeFragment());
+        mFragments.add(new TestFragment());
+        mFragments.add(new FaxFragment());
         mFragments.add(new MineFragment());
-        // 初始化展示MessageFragment
+        // 初始化展示
         setFragmentPosition(0);
     }
 
@@ -65,14 +69,20 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
-                    case R.id.menu_record:
+                    case R.id.menu_study:
                         setFragmentPosition(0);
                         break;
-                    case R.id.menu_others:
+                    case R.id.menu_practice:
                         setFragmentPosition(1);
                         break;
-                    case R.id.menu_mine:
+                    case R.id.menu_test:
                         setFragmentPosition(2);
+                        break;
+                    case R.id.menu_fax:
+                        setFragmentPosition(3);
+                        break;
+                    case R.id.menu_mine:
+                        setFragmentPosition(4);
                         break;
                     default:
                         break;

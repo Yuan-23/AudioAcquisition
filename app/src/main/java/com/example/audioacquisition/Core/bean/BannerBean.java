@@ -1,6 +1,6 @@
 package com.example.audioacquisition.Core.bean;
 
-import com.example.audioacquisition.Home.bean.Slideshow;
+import com.example.audioacquisition.Practice.bean.Slideshow;
 
 import java.util.List;
 

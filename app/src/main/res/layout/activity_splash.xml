@@ -13,7 +13,7 @@
         android:layout_height="match_parent"
         android:adjustViewBounds="true"
         android:scaleType="fitXY"
-        android:src="@color/theme2">
+        android:src="@drawable/flash">
 
     </ImageView>
 
@@ -29,10 +29,10 @@
         android:paddingEnd="12dp"
         android:paddingBottom="4dp"
         android:text="点击跳过"
-        android:textColor="@color/theme3"
-        android:textSize="16dp"
+        android:textColor="@color/theme2"
+        android:textSize="14dp"
         android:visibility="visible"
-        app:rtvBgColor="@color/theme2"
+        app:rtvBgColor="@color/blue"
         app:rtvRadius="6dp" >
 
     </com.example.audioacquisition.Core.widget.RoundTextView>
@@ -44,7 +44,6 @@
         android:layout_centerHorizontal="true"
         android:layout_above="@+id/splash_tv2"
         android:layout_marginBottom="40dp"
-        android:text="@string/app_name"
         android:textStyle = "bold"
         android:textColor="@color/white"
         android:textSize="50dp" />
@@ -55,7 +54,6 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:gravity="center"
-        android:text="理性平和 文明规范"
         android:textColor="@color/white"
         android:textSize="20dp" />
 
@@ -64,19 +62,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_above="@+id/splash_tv4"
-        android:text="XX企业提供服务"
+        android:layout_above="@+id/splash_im4"
         android:textColor="@color/theme"
         android:textSize="15dp" />
-    <TextView
-        android:id="@+id/splash_tv4"
+
+    <ImageView
+        android:id="@+id/splash_im4"
         android:layout_width="wrap_content"
-        android:layout_height="22dp"
-        android:layout_centerHorizontal="true"
+        android:layout_height="30dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="20dp"
-        android:text="XXXX.com"
-        android:textColor="@color/theme3"
-        android:textSize="15dp" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        app:srcCompat="@drawable/logo" />
+
 
 </RelativeLayout>

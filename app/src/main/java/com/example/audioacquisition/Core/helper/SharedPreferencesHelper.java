@@ -1,9 +1,9 @@
 package com.example.audioacquisition.Core.helper;
 
 import android.content.Context;
-import android.content.SharedPreferences;
 
 import com.blankj.utilcode.util.GsonUtils;
+import com.example.audioacquisition.Core.bean.AppPicture;
 import com.example.audioacquisition.Core.data.SharedPreConstants;
 import com.example.audioacquisition.Core.data.SharedPreferencesUtil;
 import com.example.audioacquisition.Mine.bean.User;
@@ -85,8 +85,8 @@ public class SharedPreferencesHelper {
         SharedPreferencesUtil.putInt(context, SharedPreConstants.USER_ID, userId);
     }
 
-        /*用户类*/
-        public static void setUserBean(User user ,Context context) {
+    /*用户类*/
+    public static void setUserBean(User user, Context context) {
         SharedPreferencesUtil.putString(context, SharedPreConstants.USERBEAN, GsonUtils.toJson(user));
 
     }
@@ -97,6 +97,25 @@ public class SharedPreferencesHelper {
     }
 
 
+    /*图标类*/
+    public static void setAppPicture(AppPicture drawBean, Context context) {
+        SharedPreferencesUtil.putString(context, SharedPreConstants.APPPICTURE, GsonUtils.toJson(drawBean));
 
+    }
+
+    public static AppPicture getAppPicture(Context context) {
+        String jsonStr = SharedPreferencesUtil.getString(context, SharedPreConstants.APPPICTURE, "");
+        return GsonUtils.fromJson(jsonStr, AppPicture.class);
+    }
+
+    /*是否更新图标*/
+
+    public static int getVersion(Context context) {
+        return SharedPreferencesUtil.getInt(context, SharedPreConstants.VERSION, -1);
+    }
+
+    public static void setVersion(int version, Context context) {
+        SharedPreferencesUtil.putInt(context, SharedPreConstants.VERSION, version);
+    }
 
 }

@@ -5,8 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
+    android:background="@color/white"
     android:gravity="center"
-    tools:context=".Practice.activity.TestActivity">
+    tools:context=".Test.activity.TestActivity">
 
 
     <androidx.core.widget.NestedScrollView
@@ -32,12 +33,53 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="考试中心"
+                    android:text="考试须知"
                     android:textColor="@color/white"
                     android:textSize="22sp" />
 
             </androidx.appcompat.widget.Toolbar>
 
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="15dp"
+                android:lineSpacingExtra="5dp"
+                android:lineSpacingMultiplier="1.5"
+                android:text="1、注意考试截止时间。
+
+考试时间是管理员在创建试卷的时候设定的，如果考生在设定的试卷内没有完成答题的话，系统是会自动交卷或无法参加考试的，所以考生一定要留意考试时间，在时限范围内登录考试系统参加考试并完成考试。
+
+2、注意保存考试入口。
+
+考试试卷在生成后，会生成一个唯一的考试入口。比较常见的就是二维码入口以及网页地址入口。通常考试组织方会早早将这些入口公示给考生，考生最好自行保留存储下来，免得临近考试时找不到入口又手忙脚乱的。考试试卷在生成后，会生成一个唯一的考试入口。比较常见的就是二维码入口以及网页地址入口。通常考试组织方会早早将这些入口公示给考生，考生最好自行保留存储下来，免得临近考试时找不到入口又手忙脚乱的。
+6、注意交卷。
+
+一般来说在考试时间到时，系统都会自动交卷，但也不排除会临时突发意外状况（比如系统宕机）。所以，试卷在作答完毕，检查确认无误后，还是自己点击“交卷”按钮进行交卷会比较稳妥。
+
+7、保留管理员或者考试组织者的联系方式。
+
+若临时突发紧急状况，可以及时与他们取得联系，事前处理总比事后补救要靠谱得多，毕竟很多事情一旦发生，也根本不能确定能否有补救和回转的余地。"
+                android:textColor="@color/theme"
+                android:textSize="14dp">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/test_certain"
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="30dp"
+                android:background="@drawable/theme2_bg"
+                android:gravity="center"
+                android:text="我已阅读，确认考试"
+                android:textColor="@color/yellow"
+                android:textStyle="bold"
+                android:textSize="18dp">
+
+            </TextView>
 
         </LinearLayout>
 

@@ -2,24 +2,32 @@ package com.example.audioacquisition.Mine.activity;
 
 
 import android.annotation.SuppressLint;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.audioacquisition.Core.activity.MainActivity;
+import com.example.audioacquisition.Core.activity.SplashActivity;
+import com.example.audioacquisition.Core.bean.AppPicturePassBean;
 import com.example.audioacquisition.Core.data.SharedPreferencesUtil;
 import com.example.audioacquisition.Core.data.UrlConstants;
 import com.example.audioacquisition.Core.helper.LoginHelper;
 import com.example.audioacquisition.Core.helper.SharedPreferencesHelper;
 import com.example.audioacquisition.Core.network.okgo.GsonCallback;
+import com.example.audioacquisition.Mine.adapter.LoginDialog;
 import com.example.audioacquisition.Mine.passbean.LoginBean;
 import com.example.audioacquisition.R;
 import com.google.android.material.textfield.TextInputEditText;
@@ -38,10 +46,12 @@ public class LoginActivity extends AppCompatActivity {
 
     private TextView login;
     private TextView forget;
-    private ImageView back;
+    // private ImageView back;
     private CheckBox remember;
-    private TextInputEditText mUserAccountEt;
-    private TextInputEditText mPasswordEt;
+    private EditText mUserAccountEt;
+    private EditText mPasswordEt;
+    LoginDialog mMyDialog;
+
 
     File file = null;
 
@@ -50,19 +60,23 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+
         login = (TextView) findViewById(R.id.login_login_tv);
         forget = findViewById(R.id.login_forgetpsw_tv);
         remember = findViewById(R.id.login_remember);
         mUserAccountEt = findViewById(R.id.login_account_et);
         mPasswordEt = findViewById(R.id.login_password_et);
+//
+//        back = (ImageView) findViewById(R.id.back_image_log);
+//        back.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                finish();
+//            }
+//        });
 
-        back = (ImageView) findViewById(R.id.back_image_log);
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
+
+        initPicture();//缓存图标
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,6 +96,7 @@ public class LoginActivity extends AppCompatActivity {
                 onClickForget();
             }
         });
+
         remember.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -103,10 +118,43 @@ public class LoginActivity extends AppCompatActivity {
     }
 
 
+    //点击返回则判断是否退出程序（不让已经退出登录的用户返回软件内部）
+    @Override
+    public boolean dispatchKeyEvent(KeyEvent event) {
+        if (event.getKeyCode() == KeyEvent.KEYCODE_BACK
+                && event.getAction() == KeyEvent.ACTION_DOWN
+                && event.getRepeatCount() == 0) {
+            //详细的操作代码
+
+            View view = getLayoutInflater().inflate(R.layout.dialog, null);
+            TextView cancel = view.findViewById(R.id.cancel);
+            TextView certain = view.findViewById(R.id.certain);
+
+            mMyDialog = new LoginDialog(this, 0, 0, view, R.style.DialogTheme);
+            mMyDialog.setCancelable(true);
+            mMyDialog.show();
+            cancel.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    mMyDialog.dismiss();
+                }
+            });
+            certain.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    finish();
+                }
+            });
+            return true;
+        }
+        return super.dispatchKeyEvent(event);
+    }
+
+
     @SuppressLint("WrongConstant")
     public void onClickLogin() throws IOException {
         if (TextUtils.isEmpty(mUserAccountEt.getText())) {
-            Toast.makeText(LoginActivity.this, "请输入电话号码", Toast.LENGTH_SHORT).show();
+            Toast.makeText(LoginActivity.this, "请输入身份证号码", Toast.LENGTH_SHORT).show();
         } else if (TextUtils.isEmpty(mPasswordEt.getText())) {
             Toast.makeText(LoginActivity.this, "请输入您的密码", Toast.LENGTH_SHORT).show();
         } else {
@@ -121,9 +169,11 @@ public class LoginActivity extends AppCompatActivity {
                             if (body.status.equals("200")) {
                                 SharedPreferencesHelper.setUserAccount(body.user.getPolice_number(), LoginActivity.this);
                                 SharedPreferencesHelper.setUserPassWord(body.user.getPassword(), LoginActivity.this);
-                                SharedPreferencesHelper.setUserId(body.user.getId(),LoginActivity.this);
-                                SharedPreferencesHelper.setUserBean(body.user,LoginActivity.this);
-                                SharedPreferencesHelper.setLoginStatus(true,LoginActivity.this);
+                                SharedPreferencesHelper.setUserId(body.user.getId(), LoginActivity.this);
+                                SharedPreferencesHelper.setUserBean(body.user, LoginActivity.this);
+                                SharedPreferencesHelper.setLoginStatus(true, LoginActivity.this);
+                                // SharedPreferencesHelper.setDrawBean(body);
+
                                 LoginHelper.login(LoginActivity.this);
                                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                                 startActivity(intent);
@@ -213,5 +263,36 @@ public class LoginActivity extends AppCompatActivity {
         Intent intent = new Intent(LoginActivity.this, ChangeActivity.class);
         startActivity(intent);
     }
+
+    public void initPicture() {
+        OkGo.<AppPicturePassBean>post(UrlConstants.Picture)
+                .params("district_id", 2)//默认青冈县为2
+                .execute(new GsonCallback<AppPicturePassBean>(AppPicturePassBean.class) {
+                    @Override
+                    public void onSuccess(Response<AppPicturePassBean> response) {
+                        AppPicturePassBean body = response.body();
+                        System.out.println("图标测试：" + body.appPicture.toString());
+                        if (body.status.equals("200")) {
+                            //初次为version赋值并且缓存图标,如果版本号有所改变则重新缓存图标和Version的值，否则不用更新图标
+                            if ((SharedPreferencesHelper.getVersion(LoginActivity.this) == -1) ||
+                                    (SharedPreferencesHelper.getVersion(LoginActivity.this) != body.appPicture.getVersion())) {
+                                SharedPreferencesHelper.setVersion(body.appPicture.getVersion(), LoginActivity.this);
+                                SharedPreferencesHelper.setAppPicture(body.appPicture, LoginActivity.this);
+                            }
+                        } else if (body.status.equals("500")) {
+                            Toast.makeText(LoginActivity.this, "图标更新中，请重新登录哦。", Toast.LENGTH_SHORT).show();
+//                            finish();
+                        }
+                    }
+
+                    @Override
+                    public void onError(Response<AppPicturePassBean> response) {
+                        super.onError(response);
+                        System.out.println("登录测试4：网络失败");
+                        Toast.makeText(LoginActivity.this, getResources().getString(R.string.network_error), Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
+
 
 }

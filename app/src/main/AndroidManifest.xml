@@ -20,14 +20,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Practice.activity.VideoActivity">
-        </activity>
-        <activity android:name=".Practice.activity.TypicalActivity" />
-        <activity android:name=".Practice.activity.TeachActivity" />
-        <activity android:name=".Practice.activity.OtherActivity" />
-        <activity android:name=".Practice.activity.PolicyActivity" />
-        <activity android:name=".Home.activity.KindActivity" />
-        <activity android:name=".Practice.activity.FaxActivity" />
+        <activity android:name=".Test.activity.ExamActivity"></activity>
+        <activity android:name=".Mine.activity.InfoActivity" />
+        <activity android:name=".Study.activity.VideoActivity" />
+        <activity android:name=".Study.activity.TypicalActivity" />
+        <activity android:name=".Study.activity.TeachActivity" />
+        <activity android:name=".Study.activity.OtherActivity" />
+        <activity android:name=".Study.activity.PolicyActivity" />
+        <activity android:name=".Practice.activity.KindActivity" />
+        <activity android:name=".Study.activity.FaxActivity" />
         <activity android:name=".Mine.activity.StudyActivity" />
         <activity android:name=".Mine.activity.PracticeActivity" />
         <activity android:name=".Mine.activity.CourceActivity" />
@@ -38,8 +39,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Practice.activity.TestActivity" />
-        <activity android:name=".Home.activity.HorizontalActivity" />
+        <activity android:name=".Test.activity.TestActivity" />
+        <activity android:name=".Practice.activity.HorizontalActivity" />
         <activity android:name=".Mine.activity.LoginActivity" />
         <activity android:name=".Mine.activity.ChangeActivity" />
         <activity android:name=".Core.activity.MainActivity" />

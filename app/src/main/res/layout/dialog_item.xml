@@ -1,112 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="350dp"
-    android:layout_height="220dp"
-    android:background="@drawable/stage_bg"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:textColor="@color/yellow"
-        android:layout_gravity="center"
-        android:textStyle="bold"
-        android:gravity="center"
-        android:textSize="20dp"
-        android:text="答题环节">
+    <RelativeLayout
+        android:layout_width="280dp"
+        android:layout_height="160dp"
+        android:background="@drawable/home_bg"
+        android:orientation="vertical">
 
-    </TextView>
+        <TextView
+            android:id="@+id/test_tip"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp"
+            android:text="温馨提示"
+            android:textColor="#FFD306"
+            android:textSize="18dp"
+            android:textStyle="bold" />
 
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/theme2"
-        android:textSize="16dp"
-        android:layout_margin="5dp"
-        android:layout_gravity="center"
-        android:text="请您根据上述场景录制对话内容">
+        <TextView
+            android:id="@+id/test_cont"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/test_tip"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:gravity="center"
+            android:text="是否确认退出考试"
+            android:textColor="@color/theme2"
+            android:textSize="16dp" />
 
-    </TextView>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_margin="10dp"
-        android:gravity="center"
-        android:orientation="horizontal">
-
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_above="@+id/test_ll_btn"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@color/blue" />
 
         <LinearLayout
-            android:id="@+id/dialog_start_ll"
-            android:layout_width="wrap_content"
+            android:id="@+id/test_ll_btn"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="15dp"
-            android:background="@drawable/linearlayout_bg"
-            android:orientation="vertical">
-
-            <ImageView
-                android:id="@+id/dialog_start"
-                app:srcCompat="@drawable/kaishi"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:layout_gravity="center"
-                android:layout_margin="5dp"
-                android:tint="@color/yellow">
-
-            </ImageView>
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/dialog_start_tx"
-                android:layout_width="wrap_content"
+                android:id="@+id/test_dialog_certain"
+                android:layout_width="140dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
                 android:gravity="center"
-                android:text="录音"
-                android:textColor="@color/yellow"
-                android:textSize="16dp">
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:text="确 认"
+                android:textColor="@color/theme3"
+                android:textSize="14dp" />
 
-            </TextView>
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:background="@color/blue" />
+
+            <TextView
+                android:id="@+id/test_dialog_cancel"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:text="取 消"
+                android:textStyle="bold"
+                android:textColor="@color/theme2"
+                android:textSize="14dp" />
 
         </LinearLayout>
 
 
-        <LinearLayout
-            android:id="@+id/dialog_stop_ll"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="15dp"
-            android:background="@drawable/linearlayout_bg"
-            android:orientation="vertical">
+    </RelativeLayout>
 
-            <ImageView
-                android:id="@+id/dialog_stop"
-                app:srcCompat="@drawable/stop2"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:layout_gravity="center"
-                android:layout_margin="5dp"
-                android:tint="@color/theme3">
-
-            </ImageView>
-
-            <TextView
-                android:id="@+id/dialog_stop_tx"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:text="完成"
-                android:textColor="@color/SlateGrey"
-                android:textSize="16dp">
-
-            </TextView>
-
-        </LinearLayout>
-
-    </LinearLayout>
-
-</LinearLayout>
+</RelativeLayout>

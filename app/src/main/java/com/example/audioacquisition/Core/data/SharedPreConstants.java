@@ -25,7 +25,13 @@ public interface SharedPreConstants {
     String PLAYSTATUS = "PLAYSTATUS";
 
     //用户类
-    String USERBEAN="USERBEAN";
+    String USERBEAN = "USERBEAN";
+
+    //图标类
+    String APPPICTURE = "APPPICTURE";
+
+    //版本
+    String VERSION="VERSION";
 
 
     //搜索关键词

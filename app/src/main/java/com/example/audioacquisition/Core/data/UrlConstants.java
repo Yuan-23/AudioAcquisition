@@ -33,4 +33,7 @@ public interface UrlConstants {
     String TeachVideo=MY_BASE_URL+"/VoiceAssessment/user/selectSceneLearn";
     //他山之石
     String Other=MY_BASE_URL+"";
+
+    //获取图标
+    String Picture=MY_BASE_URL+"/VoiceAssessment/user/appUpload";
 }

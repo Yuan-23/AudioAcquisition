@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/yellow"
     android:orientation="vertical"
-    tools:context=".Practice.activity.TeachActivity">
+    tools:context=".Study.activity.TeachActivity">
 
 
     <HorizontalScrollView

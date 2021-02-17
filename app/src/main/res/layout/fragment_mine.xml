@@ -46,7 +46,7 @@
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:textColor="@color/theme"
-                    android:textSize="20dp">
+                    android:textSize="18dp">
 
                 </TextView>
 
@@ -59,7 +59,7 @@
                     android:layout_gravity="center_vertical"
                     android:gravity="center_vertical"
                     android:textColor="@color/yellow"
-                    android:textSize="20dp">
+                    android:textSize="18dp">
 
                 </TextView>
 
@@ -86,8 +86,7 @@
                 android:layout_marginBottom="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_gravity="center"
-                android:gravity="center"
-                android:background="@drawable/qgga">
+                android:gravity="center">
 
             </ImageView>
 
@@ -233,7 +232,53 @@
 
             </LinearLayout>
 
+            <LinearLayout
+                android:id="@+id/mine_info_ll"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/linearlayout_bg"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
 
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="25dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="1"
+                    android:tint="@color/yellow"
+                    app:srcCompat="@drawable/jiti">
+
+                </ImageView>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="20dp"
+                    android:layout_weight="8"
+                    android:gravity="center_vertical"
+                    android:text="个 人 信 息"
+                    android:textColor="@color/theme"
+                    android:textSize="18dp">
+
+                </TextView>
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="20dp"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/jinru"
+                    android:tint="@color/theme">
+
+                </ImageView>
+
+
+            </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/mine_change_ll"

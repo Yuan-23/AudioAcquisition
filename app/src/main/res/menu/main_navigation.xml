@@ -2,22 +2,35 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/menu_record"
+        android:id="@+id/menu_study"
         android:enabled="true"
         android:icon="@drawable/home"
         app:showAsAction="ifRoom"
-        android:title="训练中心" />
+        android:title="学习中心" />
     <item
-        android:id="@+id/menu_others"
+        android:id="@+id/menu_practice"
         android:enabled="true"
         android:icon="@drawable/yuyin3"
         android:iconTint="@color/black"
         app:showAsAction="ifRoom"
-        android:title="学习中心" />
+        android:title="训练中心" />
+    <item
+        android:id="@+id/menu_test"
+        android:enabled="true"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/paiming"
+        android:title="考试中心" />
+    <item
+        android:id="@+id/menu_fax"
+        android:enabled="true"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/fax"
+        android:title="一线传真" />
     <item
         android:id="@+id/menu_mine"
         android:enabled="true"
         app:showAsAction="ifRoom"
         android:icon="@drawable/mine"
-        android:title="我的学习" />
+        android:title="我的" />
+
 </menu>
