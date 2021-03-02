@@ -1,5 +1,7 @@
 package com.example.audioacquisition.Practice.bean;
 
+import java.util.Objects;
+
 public class BuyInformation {
     /*create table buy_information(
 id int primary key auto_increment,

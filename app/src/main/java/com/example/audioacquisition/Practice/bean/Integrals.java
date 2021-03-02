@@ -1,5 +1,7 @@
 package com.example.audioacquisition.Practice.bean;
 
+import java.util.Objects;
+
 public class Integrals {
     private int id;
     private String date;

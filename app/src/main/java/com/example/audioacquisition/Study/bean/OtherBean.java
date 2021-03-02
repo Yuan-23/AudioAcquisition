@@ -1,25 +1,31 @@
 package com.example.audioacquisition.Study.bean;
 
 public class OtherBean {
-    private String othervideo;
+    private String otherimage;
     private String othercontent;
     private String othername;
+    private int oid;
 
-    public OtherBean(String othervideo, String othercontent, String othername) {
-        this.othervideo = othervideo;
+    public int getOid() {
+        return oid;
+    }
+
+    public void setOid(int oid) {
+        this.oid = oid;
+    }
+
+    public OtherBean(String otherimage, String othercontent, String othername) {
+        this.otherimage = otherimage;
         this.othercontent = othercontent;
         this.othername = othername;
     }
 
-    public OtherBean() {
+    public String getOtherimage() {
+        return otherimage;
     }
 
-    public String getOthervideo() {
-        return othervideo;
-    }
-
-    public void setOthervideo(String othervideo) {
-        this.othervideo = othervideo;
+    public void setOtherimage(String otherimage) {
+        this.otherimage = otherimage;
     }
 
     public String getOthercontent() {

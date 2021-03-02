@@ -1,5 +1,7 @@
 package com.example.audioacquisition.Practice.bean;
 
+import java.util.Objects;
+
 public class StageVoice {
     /*id int primary key auto_increment, # 主键
 scene_code varchar(50), # 场景代码

@@ -41,7 +41,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginLeft="5dp"
-                    android:text="温馨提示：请根据视频内容作出回复。"
+                    android:text="温馨提示：请在每次倒计时后作出回复。"
                     android:textColor="@color/yellow"
                     android:textSize="14dp">
 
@@ -49,323 +49,36 @@
 
             </LinearLayout>
 
-
-            <LinearLayout
-                android:id="@+id/moni_first_ll"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="10dp"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:id="@+id/moni_first_image"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_margin="10dp"
-                    android:tint="@color/theme2"
-                    app:srcCompat="@drawable/zhifa">
-
-                </ImageView>
-
-                <TextView
-                    android:id="@+id/moni_first_name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_margin="10dp"
-                    android:text="第一阶段：开始执法"
-                    android:textColor="@color/theme2"
-                    android:textSize="18dp"
-                    android:textStyle="bold">
-
-                </TextView>
-
-            </LinearLayout>
-
-            <LinearLayout
+            <RelativeLayout
+                android:id="@+id/voide_layout"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="480px"
+                android:layout_margin="10dp"
+                android:background="@android:color/black"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <VideoView
+                    android:id="@+id/moni_vv"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center">
+
+                </VideoView>
+
+            </RelativeLayout>
+
+            <ImageView
+                android:id="@+id/moni_full"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:tint="@color/theme2"
                 android:layout_gravity="right"
-                android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:gravity="right"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="50dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="评分："
-                    android:textColor="@color/theme3"
-                    android:textSize="16dp">
-
-                </TextView>
-
-                <TextView
-                    android:id="@+id/moni_first_score"
-                    android:layout_width="60dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginRight="10dp"
-                    android:gravity="center"
-                    android:maxLines="1"
-                    android:text="暂无"
-                    android:textColor="@color/theme2"
-                    android:textSize="16dp"
-                    android:textStyle="italic">
-
-                </TextView>
-
-            </LinearLayout>
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/moni_first_rv1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:background="@drawable/viewpager_bg">
-
-            </androidx.recyclerview.widget.RecyclerView>
+                app:srcCompat="@drawable/full">
 
 
-            <LinearLayout
-                android:id="@+id/moni_second_ll"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="10dp"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:id="@+id/moni_second_image"
-                    android:layout_width="29dp"
-                    android:layout_height="27dp"
-                    android:layout_margin="10dp"
-                    android:layout_weight="1"
-                    android:tint="@color/theme2"
-                    app:srcCompat="@drawable/stop">
-
-                </ImageView>
-
-                <TextView
-                    android:id="@+id/moni_second_name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_margin="10dp"
-                    android:text="第二阶段：遇到阻碍"
-                    android:textColor="@color/theme2"
-                    android:textSize="18dp"
-                    android:textStyle="bold">
-
-                </TextView>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:gravity="right"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="50dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="评分："
-                    android:textColor="@color/theme3"
-                    android:textSize="16dp">
-
-                </TextView>
-
-                <TextView
-                    android:id="@+id/moni_second_score"
-                    android:layout_width="60dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginRight="10dp"
-                    android:gravity="center"
-                    android:maxLines="1"
-                    android:text="暂无"
-                    android:textColor="@color/theme2"
-                    android:textSize="16dp"
-                    android:textStyle="italic">
-
-                </TextView>
-
-            </LinearLayout>
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/moni_second_rv2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:background="@drawable/viewpager_bg">
-
-            </androidx.recyclerview.widget.RecyclerView>
-
-            <LinearLayout
-                android:id="@+id/moni_third_ll"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="10dp"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:id="@+id/moni_third_image"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_margin="10dp"
-                    android:tint="@color/theme2"
-                    app:srcCompat="@drawable/yuyin4">
-
-                </ImageView>
-
-                <TextView
-                    android:id="@+id/moni_third_name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_margin="10dp"
-                    android:text="第三阶段：口头传唤"
-                    android:textColor="@color/theme2"
-                    android:textSize="18dp"
-                    android:textStyle="bold">
-
-                </TextView>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:gravity="right"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="50dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="评分："
-                    android:textColor="@color/theme3"
-                    android:textSize="16dp">
-
-                </TextView>
-
-                <TextView
-                    android:id="@+id/moni_third_score"
-                    android:layout_width="60dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginRight="10dp"
-                    android:gravity="center"
-                    android:maxLines="1"
-                    android:text="暂无"
-                    android:textColor="@color/theme2"
-                    android:textSize="16dp"
-                    android:textStyle="italic">
-
-                </TextView>
-
-            </LinearLayout>
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/moni_third_rv3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:background="@drawable/viewpager_bg">
-
-            </androidx.recyclerview.widget.RecyclerView>
-
-            <LinearLayout
-                android:id="@+id/moni_fourth_ll"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="10dp"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:id="@+id/moni_fourth_image"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_margin="10dp"
-                    android:tint="@color/theme2"
-                    app:srcCompat="@drawable/jubu">
-
-                </ImageView>
-
-                <TextView
-                    android:id="@+id/moni_fourth_name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_margin="10dp"
-                    android:text="第四阶段：强制传唤"
-                    android:textColor="@color/theme2"
-                    android:textSize="18dp"
-                    android:textStyle="bold">
-
-                </TextView>
-
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:gravity="right"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="50dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="评分："
-                    android:textColor="@color/theme3"
-                    android:textSize="16dp">
-
-                </TextView>
-
-                <TextView
-                    android:id="@+id/moni_fourth_score"
-                    android:layout_width="60dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginRight="10dp"
-                    android:gravity="center"
-                    android:maxLines="1"
-                    android:text="暂无"
-                    android:textColor="@color/theme2"
-                    android:textSize="16dp"
-                    android:textStyle="italic">
-
-                </TextView>
-
-            </LinearLayout>
-
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/moni_fourth_rv4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:background="@drawable/viewpager_bg">
-
-            </androidx.recyclerview.widget.RecyclerView>
-
+            </ImageView>
 
             <LinearLayout
                 android:id="@+id/moni_score_ll"

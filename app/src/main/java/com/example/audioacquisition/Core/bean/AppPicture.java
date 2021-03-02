@@ -5,8 +5,8 @@ import java.util.List;
 public class AppPicture {
     private int id;
     private int district_id;
-    private String icon; //图标，已经告诉不能显示了
-    private String flash_page; //闪页
+    private String icon; //交通执法类
+    private String flash_page; //刑事治安类
     private String mine; //我的
     private String fax_line; //一线传真
     private String learn; //学习

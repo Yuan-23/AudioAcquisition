@@ -6,7 +6,7 @@ import com.blankj.utilcode.util.GsonUtils;
 import com.example.audioacquisition.Core.bean.AppPicture;
 import com.example.audioacquisition.Core.data.SharedPreConstants;
 import com.example.audioacquisition.Core.data.SharedPreferencesUtil;
-import com.example.audioacquisition.Mine.bean.User;
+import com.example.audioacquisition.Practice.bean.User;
 
 public class SharedPreferencesHelper {
 
@@ -27,6 +27,16 @@ public class SharedPreferencesHelper {
     public static void setUserPassWord(String userPassWord, Context context) {
         SharedPreferencesUtil.putString(context, SharedPreConstants.USER_PASSWORD, userPassWord);
     }
+
+    /*用户头像*/
+    public static String getUserAvatarUrl(Context context) {
+        return SharedPreferencesUtil.getString(context, SharedPreConstants.USER_AVATAR_URL, "");
+    }
+
+    public static void setUserAvatarUrl(String avatarUrl, Context context) {
+        SharedPreferencesUtil.putString(context, SharedPreConstants.USER_AVATAR_URL, avatarUrl);
+    }
+
 
     /*场景ID*/
     public static int getSceneCode(Context context) {
@@ -117,5 +127,23 @@ public class SharedPreferencesHelper {
     public static void setVersion(int version, Context context) {
         SharedPreferencesUtil.putInt(context, SharedPreConstants.VERSION, version);
     }
+
+    /*部门ID*/
+    public static int getDepartmentid(Context context) {
+        return SharedPreferencesUtil.getInt(context, SharedPreConstants.DEPARTMENT, 0);
+    }
+
+    public static void setDepartmentid(int department, Context context) {
+        SharedPreferencesUtil.putInt(context, SharedPreConstants.DEPARTMENT, department);
+    }
+
+//    /*部门位置*/
+//    public static int getDepartmentnum(Context context) {
+//        return SharedPreferencesUtil.getInt(context, SharedPreConstants.DEPARTMENTNUM, 0);
+//    }
+//
+//    public static void setDepartmentnum(int departmentnum, Context context) {
+//        SharedPreferencesUtil.putInt(context, SharedPreConstants.DEPARTMENTNUM, departmentnum);
+//    }
 
 }

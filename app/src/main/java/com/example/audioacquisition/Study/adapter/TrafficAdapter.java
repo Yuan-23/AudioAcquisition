@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.audioacquisition.Core.helper.SharedPreferencesHelper;
 import com.example.audioacquisition.Study.activity.VideoActivity;
 import com.example.audioacquisition.Study.bean.TrafficBean;
 import com.example.audioacquisition.R;
@@ -54,7 +55,7 @@ public class TrafficAdapter extends RecyclerView.Adapter<TrafficAdapter.ViewHold
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(mview.getContext(), VideoActivity.class);
-                intent.putExtra("sceneSortId", trafficBean.getSceneSortId());
+                intent.putExtra("sceneId", trafficBean.getSceneId());
                 startActivity(intent);
             }
         });

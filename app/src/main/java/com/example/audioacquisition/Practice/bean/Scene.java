@@ -7,14 +7,21 @@ public class Scene {
     private String scene_name; //场景名称
     private int scene_sort_id; //所属分类的id
     private String video_url; //视频的地址
+    private String yuan_video_url; //原视频的地址
     private int stageNum; //该场景有多少个阶段
     private String standard_url; //评分标准的地址
     private String teacher_url; //教学视频的地址
+    private String yuan_teacher_url; //原教学视频的地址
     private String exam_url; //考试视频的地址
-    private int learnFlag;
-    private String sceneDetail; //场景的详情
-    private List<LegalBasis> legalBases;//
-    private List<Essential> essentials;
+    private String yuan_exam_url; //原考试视频的地址
+    private int learnFlag; //该警官是否学过
+    private List<SceneDetail> sceneDetail; //场景的详情
+    private List<LegalBasis> legalBases; //法律依据
+    private List<Essential> essentials; //要领
+    private int flag; // 0为未删除
+    private String file_url; //评分表地址
+    private String picture; //封面图片
+
 
     @Override
     public String toString() {
@@ -23,15 +30,69 @@ public class Scene {
                 ", scene_name='" + scene_name + '\'' +
                 ", scene_sort_id=" + scene_sort_id +
                 ", video_url='" + video_url + '\'' +
+                ", yuan_video_url='" + yuan_video_url + '\'' +
                 ", stageNum=" + stageNum +
                 ", standard_url='" + standard_url + '\'' +
                 ", teacher_url='" + teacher_url + '\'' +
+                ", yuan_teacher_url='" + yuan_teacher_url + '\'' +
                 ", exam_url='" + exam_url + '\'' +
+                ", yuan_exam_url='" + yuan_exam_url + '\'' +
                 ", learnFlag=" + learnFlag +
-                ", sceneDetail='" + sceneDetail + '\'' +
+                ", sceneDetail=" + sceneDetail +
                 ", legalBases=" + legalBases +
                 ", essentials=" + essentials +
+                ", flag=" + flag +
+                ", file_url='" + file_url + '\'' +
+                ", picture='" + picture + '\'' +
                 '}';
+    }
+
+    public String getYuan_video_url() {
+        return yuan_video_url;
+    }
+
+    public void setYuan_video_url(String yuan_video_url) {
+        this.yuan_video_url = yuan_video_url;
+    }
+
+    public String getYuan_teacher_url() {
+        return yuan_teacher_url;
+    }
+
+    public void setYuan_teacher_url(String yuan_teacher_url) {
+        this.yuan_teacher_url = yuan_teacher_url;
+    }
+
+    public String getYuan_exam_url() {
+        return yuan_exam_url;
+    }
+
+    public void setYuan_exam_url(String yuan_exam_url) {
+        this.yuan_exam_url = yuan_exam_url;
+    }
+
+    public int getFlag() {
+        return flag;
+    }
+
+    public void setFlag(int flag) {
+        this.flag = flag;
+    }
+
+    public String getFile_url() {
+        return file_url;
+    }
+
+    public void setFile_url(String file_url) {
+        this.file_url = file_url;
+    }
+
+    public String getPicture() {
+        return picture;
+    }
+
+    public void setPicture(String picture) {
+        this.picture = picture;
     }
 
     public List<Essential> getEssentials() {
@@ -122,11 +183,11 @@ public class Scene {
         this.video_url = video_url;
     }
 
-    public String getSceneDetail() {
+    public List<SceneDetail> getSceneDetail() {
         return sceneDetail;
     }
 
-    public void setSceneDetail(String sceneDetail) {
+    public void setSceneDetail(List<SceneDetail> sceneDetail) {
         this.sceneDetail = sceneDetail;
     }
 }

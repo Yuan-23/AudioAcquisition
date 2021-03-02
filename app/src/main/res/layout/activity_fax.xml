@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     android:orientation="vertical"
-    tools:context=".Study.activity.FaxActivity">
+    tools:context=".Fax.activity.FaxActivity">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -37,14 +37,63 @@
 
             </androidx.appcompat.widget.Toolbar>
 
-            <VideoView
-                android:id="@+id/fax_vv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:visibility="gone">
 
-            </VideoView>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="20dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/study"
+                    android:tint="@color/theme"
+                    app:srcCompat="@drawable/pic3">
+
+                </ImageView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center"
+                    android:text="标 题"
+                    android:textColor="@color/theme"
+                    android:textSize="16dp">
+
+                </TextView>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/stage_bg">
+
+                <EditText
+                    android:id="@+id/fax_edt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:background="@color/white"
+                    android:hint="为一线传真配上标题吧。"
+                    android:textSize="14dp">
+
+                </EditText>
+
+            </LinearLayout>
+
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -62,7 +111,8 @@
                     android:layout_height="30dp"
                     android:layout_gravity="center"
                     android:src="@drawable/fax"
-                    android:tint="@color/theme">
+                    android:tint="@color/theme"
+                    app:srcCompat="@drawable/pic2">
 
                 </ImageView>
 
@@ -72,7 +122,7 @@
                     android:layout_gravity="center"
                     android:layout_marginLeft="10dp"
                     android:gravity="center"
-                    android:text="视频"
+                    android:text="视 频"
                     android:textColor="@color/theme"
                     android:textSize="16dp">
 
@@ -83,8 +133,9 @@
 
 
             <LinearLayout
+                android:id="@+id/fax_putvv"
                 android:layout_width="match_parent"
-                android:layout_height="220dp"
+                android:layout_height="200dp"
                 android:layout_gravity="center"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
@@ -92,11 +143,10 @@
                 android:gravity="center">
 
                 <ImageView
-                    android:id="@+id/fax_put"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:tint="@color/theme2"
-                    app:srcCompat="@drawable/add2">
+                    android:id="@+id/fax_video"
+                    android:layout_width="wrap_content"
+                    android:layout_height="180dp"
+                    app:srcCompat="@drawable/vv">
 
                 </ImageView>
 
@@ -118,7 +168,8 @@
                     android:layout_height="30dp"
                     android:layout_gravity="center"
                     android:src="@drawable/study"
-                    android:tint="@color/theme">
+                    android:tint="@color/theme"
+                    app:srcCompat="@drawable/pic">
 
                 </ImageView>
 
@@ -128,7 +179,7 @@
                     android:layout_gravity="center"
                     android:layout_marginLeft="10dp"
                     android:gravity="center"
-                    android:text="文字"
+                    android:text="封 面"
                     android:textColor="@color/theme"
                     android:textSize="16dp">
 
@@ -138,23 +189,23 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/fax_putpic"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="200dp"
+                android:layout_gravity="center"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
+                android:layout_marginBottom="20dp"
                 android:background="@drawable/stage_bg"
-                android:layout_marginBottom="20dp">
+                android:gravity="center">
 
-                <EditText
-                    android:id="@+id/fax_edt"
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:layout_margin="10dp"
-                    android:hint="为视频配上说明文字吧。"
-                    android:background="@color/white"
-                    android:textSize="14dp">
+                <ImageView
+                    android:id="@+id/fax_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="180dp"
+                    app:srcCompat="@drawable/zp">
 
-                </EditText>
+                </ImageView>
 
             </LinearLayout>
 
@@ -164,13 +215,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginLeft="20dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="30dp"
                 android:layout_marginRight="20dp"
                 android:layout_marginBottom="50dp"
                 android:background="@drawable/theme2_bg"
                 android:gravity="center"
                 android:text="上                   传"
-                android:textColor="@color/yellow"
+                android:textColor="@color/white"
                 android:textSize="18dp"
                 android:textStyle="bold">
 

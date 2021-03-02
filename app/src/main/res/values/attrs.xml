@@ -23,19 +23,19 @@
 
     <attr name="cpListItemTextSize" format="dimension|reference" />
     <attr name="cpListItemTextColor" format="color|reference" />
-    <attr name="cpListItemHeight" format="dimension|reference"/>
+    <attr name="cpListItemHeight" format="dimension|reference" />
 
-    <attr name="cpEmptyIcon" format="reference"/>
-    <attr name="cpEmptyIconWidth" format="dimension|reference"/>
-    <attr name="cpEmptyIconHeight" format="dimension|reference"/>
-    <attr name="cpEmptyText" format="string|reference"/>
-    <attr name="cpEmptyTextSize" format="dimension|reference"/>
-    <attr name="cpEmptyTextColor" format="color|reference"/>
+    <attr name="cpEmptyIcon" format="reference" />
+    <attr name="cpEmptyIconWidth" format="dimension|reference" />
+    <attr name="cpEmptyIconHeight" format="dimension|reference" />
+    <attr name="cpEmptyText" format="string|reference" />
+    <attr name="cpEmptyTextSize" format="dimension|reference" />
+    <attr name="cpEmptyTextColor" format="color|reference" />
 
-    <attr name="cpGridItemBackground" format="color|reference"/>
-    <attr name="cpGridItemSpace" format="reference"/>
+    <attr name="cpGridItemBackground" format="color|reference" />
+    <attr name="cpGridItemSpace" format="reference" />
     <!--悬浮栏-->
-    <attr name="cpSectionHeight" format="reference"/>
+    <attr name="cpSectionHeight" format="reference" />
     <attr name="cpSectionTextSize" format="reference" />
     <attr name="cpSectionTextColor" format="reference" />
     <attr name="cpSectionBackground" format="reference" />
@@ -44,9 +44,17 @@
     <attr name="cpIndexBarNormalTextColor" format="reference" />
     <attr name="cpIndexBarSelectedTextColor" format="reference" />
     <!--特写布局-->
-    <attr name="cpOverlayWidth" format="dimension|reference"/>
-    <attr name="cpOverlayHeight" format="dimension|reference"/>
-    <attr name="cpOverlayTextSize" format="dimension|reference"/>
-    <attr name="cpOverlayTextColor" format="color|reference"/>
-    <attr name="cpOverlayBackground" format="color|reference"/>
+    <attr name="cpOverlayWidth" format="dimension|reference" />
+    <attr name="cpOverlayHeight" format="dimension|reference" />
+    <attr name="cpOverlayTextSize" format="dimension|reference" />
+    <attr name="cpOverlayTextColor" format="color|reference" />
+    <attr name="cpOverlayBackground" format="color|reference" />
+
+
+    <declare-styleable name="CircleImageView">
+        <attr name="border_width_new" format="dimension" />
+        <attr name="border_color_new" format="color" />
+    </declare-styleable>
+
+
 </resources>

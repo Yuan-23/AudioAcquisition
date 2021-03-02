@@ -51,7 +51,8 @@ public class SecurityAdapter extends RecyclerView.Adapter<SecurityAdapter.ViewHo
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(mview.getContext(), VideoActivity.class);
-                intent.putExtra("sceneSortId", trafficBean.getSceneSortId());
+                intent.putExtra("sceneId", trafficBean.getSceneId());
+                intent.putExtra("teachurl",trafficBean.getTeachurl());
                 startActivity(intent);
             }
         });

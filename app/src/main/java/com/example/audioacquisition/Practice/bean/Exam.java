@@ -1,6 +1,7 @@
 package com.example.audioacquisition.Practice.bean;
 
-import java.sql.Date;
+
+import java.util.Date;
 
 public class Exam {
     private int id; //主键
@@ -12,7 +13,7 @@ public class Exam {
     private int answer_flag; //是否回答
     private Double score; //一共要多少分
     private int count_flag; //一共有多少条语音要录
-    private int exam_record_id; //
+    private int exam_record_id; //地区考试记录id
     private User user;
 
     @Override

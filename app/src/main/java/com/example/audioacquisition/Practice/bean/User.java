@@ -17,6 +17,11 @@ administrators_id int not null,  # 管理员ID*/
     private int learn_num;
     private double learn_score;
     private int integral;
+    private String head_portrait;
+    private String phone_number;
+    private String nickname;
+    private String department_name;
+
 
     @Override
     public String toString() {
@@ -31,7 +36,43 @@ administrators_id int not null,  # 管理员ID*/
                 ", learn_num=" + learn_num +
                 ", learn_score=" + learn_score +
                 ", integral=" + integral +
+                ", head_portrait='" + head_portrait + '\'' +
+                ", phone_number='" + phone_number + '\'' +
+                ", nickname='" + nickname + '\'' +
+                ", department_name='" + department_name + '\'' +
                 '}';
+    }
+
+    public String getDepartment_name() {
+        return department_name;
+    }
+
+    public void setDepartment_name(String department_name) {
+        this.department_name = department_name;
+    }
+
+    public String getHead_portrait() {
+        return head_portrait;
+    }
+
+    public void setHead_portrait(String head_portrait) {
+        this.head_portrait = head_portrait;
+    }
+
+    public String getPhone_number() {
+        return phone_number;
+    }
+
+    public void setPhone_number(String phone_number) {
+        this.phone_number = phone_number;
+    }
+
+    public String getNickname() {
+        return nickname;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
     }
 
     public int getIntegral() {

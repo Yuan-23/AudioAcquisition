@@ -8,6 +8,8 @@ public class VideoToTeacher {
     private String video_url;
     private int type;
     private int flag;
+    private String picture;
+    private String comment;  //讲评
     private User user;
 
     @Override
@@ -20,8 +22,26 @@ public class VideoToTeacher {
                 ", video_url='" + video_url + '\'' +
                 ", type=" + type +
                 ", flag=" + flag +
+                ", picture='" + picture + '\'' +
+                ", comment='" + comment + '\'' +
                 ", user=" + user +
                 '}';
+    }
+
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
+
+    public String getPicture() {
+        return picture;
+    }
+
+    public void setPicture(String picture) {
+        this.picture = picture;
     }
 
     public User getUser() {

@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.HorizontalScrollView;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -28,17 +29,19 @@ public class HorizontalActivity extends AppCompatActivity implements View.OnClic
     private ViewPager view_pager;
     private String[] titles;
     int flag = 0;
+    private ImageView toolbar;
     private ArrayList<TextView> titlesView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_horizontal);
+        toolbar = (ImageView) findViewById(R.id.toolbar);
         //初始化
         hs = (HorizontalScrollView) findViewById(R.id.hs);
         liner = (LinearLayout) findViewById(R.id.liner);
         view_pager = (ViewPager) findViewById(R.id.view_pager);
-        titles = new String[]{"练习", "模考"};
+        titles = new String[]{"语音收集", "模拟训练"};
 
         if (Build.VERSION.SDK_INT >= 23) {
             KindPermissions.RequestAudioPermissions(this);
@@ -49,6 +52,13 @@ public class HorizontalActivity extends AppCompatActivity implements View.OnClic
         int code = intent.getIntExtra("code", -1);
         int areacode = intent.getIntExtra("area", -1);
         inittitles();
+
+        toolbar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 
         view_pager.setAdapter(new FragmentPagerAdapter(getSupportFragmentManager()) {
             @Override
@@ -110,7 +120,7 @@ public class HorizontalActivity extends AppCompatActivity implements View.OnClic
         for (int i = 0; i < titles.length; i++) {
             TextView textView = new TextView(HorizontalActivity.this);
             textView.setTextColor(Color.WHITE);
-            textView.setTextSize(16);
+            textView.setTextSize(12);
             textView.setBackgroundResource(R.drawable.title_bg);
             textView.setGravity(Gravity.CENTER);
             textView.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
@@ -124,7 +134,7 @@ public class HorizontalActivity extends AppCompatActivity implements View.OnClic
 
             //LinearLayout中的孩子的定位参数
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
-            layoutParams.setMargins(215, 10, 215, 10);//设置左上右下四个margin值;
+            layoutParams.setMargins(150, 30, 150, 30);//设置左上右下四个margin值;
             //layoutParams是让linearLayout知道如何摆放自己孩子的位置的;
             liner.addView(textView, layoutParams);
             titlesView.add(textView);

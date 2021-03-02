@@ -11,7 +11,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-import com.example.audioacquisition.Core.adapter.HomeAdapter;
+import com.example.audioacquisition.Practice.adapter.HomeAdapter;
 import com.example.audioacquisition.Core.bean.HomeBean;
 import com.example.audioacquisition.Core.bean.KindBean;
 import com.example.audioacquisition.Core.data.UrlConstants;
@@ -96,6 +96,7 @@ public class KindActivity extends AppCompatActivity {
                                     homeBean.setName(body.scene.get(i).getScene_name());
                                     homeBean.setScode(body.scene.get(i).getId());
                                     homeBean.setAreacode(body.scene.get(i).getScene_sort_id());
+                                    homeBean.setPic(body.scene.get(i).getPicture());
                                     homeBeanList.add(homeBean);
                                 } catch (Exception e) {
                                     e.printStackTrace();

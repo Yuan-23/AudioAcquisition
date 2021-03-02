@@ -2,23 +2,23 @@ package com.example.audioacquisition.Study.bean;
 
 public class TrafficBean {
     private String videoname;
-    private int sceneSortId;
+    private int sceneId;
+    private String teachurl;
 
-    public TrafficBean(String videoname) {
-        this.videoname = videoname;
+    public String getTeachurl() {
+        return teachurl;
     }
 
-    public int getSceneSortId() {
-        return sceneSortId;
+    public void setTeachurl(String teachurl) {
+        this.teachurl = teachurl;
     }
 
-    public TrafficBean(String videoname, int sceneSortId) {
-        this.videoname = videoname;
-        this.sceneSortId = sceneSortId;
+    public int getSceneId() {
+        return sceneId;
     }
 
-    public void setSceneSortId(int sceneSortId) {
-        this.sceneSortId = sceneSortId;
+    public void setSceneId(int sceneId) {
+        this.sceneId = sceneId;
     }
 
     public String getVideoname() {

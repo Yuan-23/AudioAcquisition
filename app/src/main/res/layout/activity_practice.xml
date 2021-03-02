@@ -41,14 +41,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="30dp"
-                android:layout_marginBottom="10dp"
+                android:layout_marginTop="35dp"
+                android:layout_marginBottom="20dp"
                 android:orientation="horizontal">
 
                 <ImageView
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:tint="@color/yellow"
+                    android:layout_margin="5dp"
                     app:srcCompat="@drawable/danren">
 
                 </ImageView>
@@ -71,8 +72,8 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="30dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
                 android:layout_marginBottom="10dp"
                 android:layout_marginTop="10dp"
                 android:background="@color/yellow">
@@ -84,16 +85,19 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="20dp"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="20dp"
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_weight="2.5"
                     android:layout_height="wrap_content"
-                    android:text="个 人 训 练 次 数 ："
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="训练次数"
                     android:textColor="@color/theme"
                     android:textSize="16dp">
 
@@ -101,17 +105,44 @@
 
                 <TextView
                     android:id="@+id/practice_solo_num"
-                    android:layout_width="100dp"
+                    android:layout_width="0dp"
+                    android:layout_weight="2.5"
                     android:layout_height="wrap_content"
-                    android:text="20 次"
+                    android:text="20次"
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:textStyle="bold"
-                    android:layout_marginLeft="10dp"
                     android:textColor="@color/yellow"
                     android:textSize="16dp">
 
                 </TextView>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="2.5"
+                    android:layout_height="wrap_content"
+                    android:text="训练排名"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:textColor="@color/theme"
+                    android:textSize="16dp">
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/practice_solo_numsort"
+                    android:layout_width="0dp"
+                    android:layout_weight="2.5"
+                    android:layout_height="wrap_content"
+                    android:text="22"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:textColor="@color/yellow"
+                    android:textSize="16dp">
+
+                </TextView>
+
 
             </LinearLayout>
 
@@ -124,9 +155,12 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_weight="2.5"
                     android:layout_height="wrap_content"
-                    android:text="平 均 训 练 得 分 ："
+                    android:text="平均得分"
+                    android:layout_gravity="center"
+                    android:gravity="center"
                     android:textColor="@color/theme"
                     android:textSize="16dp">
 
@@ -134,13 +168,39 @@
 
                 <TextView
                     android:id="@+id/practice_solo_score"
-                    android:layout_width="100dp"
+                    android:layout_width="0dp"
+                    android:layout_weight="2.5"
                     android:layout_height="wrap_content"
-                    android:text="88 分"
+                    android:text="88分"
                     android:textStyle="bold"
                     android:layout_gravity="center"
                     android:gravity="center"
-                    android:layout_marginLeft="10dp"
+                    android:textColor="@color/yellow"
+                    android:textSize="16dp">
+
+                </TextView>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="2.5"
+                    android:layout_height="wrap_content"
+                    android:text="得分排名"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:textColor="@color/theme"
+                    android:textSize="16dp">
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/practice_solo_scoresort"
+                    android:layout_width="0dp"
+                    android:layout_weight="2.5"
+                    android:layout_height="wrap_content"
+                    android:text="8"
+                    android:textStyle="bold"
+                    android:layout_gravity="center"
+                    android:gravity="center"
                     android:textColor="@color/yellow"
                     android:textSize="16dp">
 
@@ -151,10 +211,10 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="30dp"
-                android:layout_marginBottom="10dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="20dp"
                 android:background="@color/yellow">
 
             </View>
@@ -165,13 +225,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="30dp"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="20dp"
                 android:orientation="horizontal">
 
                 <ImageView
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:tint="@color/yellow"
+                    android:layout_margin="5dp"
                     app:srcCompat="@drawable/jiti">
 
                 </ImageView>
@@ -193,8 +254,8 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="30dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
                 android:layout_marginBottom="10dp"
                 android:layout_marginTop="10dp"
                 android:background="@color/theme2">
@@ -206,16 +267,18 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="20dp"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="20dp"
                 android:orientation="horizontal">
-
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_weight="2.5"
                     android:layout_height="wrap_content"
-                    android:text="单 位 训 练 次 数 ："
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="训练次数"
                     android:textColor="@color/theme"
                     android:textSize="16dp">
 
@@ -223,13 +286,39 @@
 
                 <TextView
                     android:id="@+id/practice_total_num"
-                    android:layout_width="100dp"
+                    android:layout_width="0dp"
+                    android:layout_weight="2.5"
                     android:layout_height="wrap_content"
-                    android:text="500 次"
+                    android:text="20次"
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:textStyle="bold"
-                    android:layout_marginLeft="10dp"
+                    android:textColor="@color/yellow"
+                    android:textSize="16dp">
+
+                </TextView>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="2.5"
+                    android:layout_height="wrap_content"
+                    android:text="训练排名"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:textColor="@color/theme"
+                    android:textSize="16dp">
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/practice_total_numsort"
+                    android:layout_width="0dp"
+                    android:layout_weight="2.5"
+                    android:layout_height="wrap_content"
+                    android:text="22"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:textStyle="bold"
                     android:textColor="@color/yellow"
                     android:textSize="16dp">
 
@@ -244,11 +333,13 @@
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:orientation="horizontal">
-
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_weight="2.5"
                     android:layout_height="wrap_content"
-                    android:text="单 位 平 均 得 分 ："
+                    android:text="平均得分"
+                    android:layout_gravity="center"
+                    android:gravity="center"
                     android:textColor="@color/theme"
                     android:textSize="16dp">
 
@@ -256,13 +347,39 @@
 
                 <TextView
                     android:id="@+id/practice_total_score"
-                    android:layout_width="100dp"
+                    android:layout_width="0dp"
+                    android:layout_weight="2.5"
                     android:layout_height="wrap_content"
-                    android:text="52 分"
+                    android:text="88分"
                     android:textStyle="bold"
                     android:layout_gravity="center"
                     android:gravity="center"
-                    android:layout_marginLeft="10dp"
+                    android:textColor="@color/yellow"
+                    android:textSize="16dp">
+
+                </TextView>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="2.5"
+                    android:layout_height="wrap_content"
+                    android:text="得分排名"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:textColor="@color/theme"
+                    android:textSize="16dp">
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/practice_total_scoresort"
+                    android:layout_width="0dp"
+                    android:layout_weight="2.5"
+                    android:layout_height="wrap_content"
+                    android:text="8"
+                    android:textStyle="bold"
+                    android:layout_gravity="center"
+                    android:gravity="center"
                     android:textColor="@color/yellow"
                     android:textSize="16dp">
 
@@ -273,10 +390,10 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="30dp"
-                android:layout_marginBottom="10dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="20dp"
                 android:background="@color/theme2">
 
             </View>

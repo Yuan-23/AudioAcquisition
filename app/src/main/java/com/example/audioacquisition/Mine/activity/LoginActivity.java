@@ -7,6 +7,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.CheckBox;
@@ -66,17 +67,9 @@ public class LoginActivity extends AppCompatActivity {
         remember = findViewById(R.id.login_remember);
         mUserAccountEt = findViewById(R.id.login_account_et);
         mPasswordEt = findViewById(R.id.login_password_et);
-//
-//        back = (ImageView) findViewById(R.id.back_image_log);
-//        back.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                finish();
-//            }
-//        });
 
+        initPicture();
 
-        initPicture();//缓存图标
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -133,21 +126,60 @@ public class LoginActivity extends AppCompatActivity {
             mMyDialog = new LoginDialog(this, 0, 0, view, R.style.DialogTheme);
             mMyDialog.setCancelable(true);
             mMyDialog.show();
+
             cancel.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     mMyDialog.dismiss();
                 }
             });
+
             certain.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     finish();
                 }
             });
+
             return true;
         }
+
         return super.dispatchKeyEvent(event);
+    }
+
+    @Override
+    protected void onDestroy() {
+        if (mMyDialog != null) {
+            mMyDialog.dismiss();
+        }
+        super.onDestroy();
+    }
+
+    public void initPicture() {
+        OkGo.<AppPicturePassBean>post(UrlConstants.Picture)
+                .params("district_id", 2)//默认青冈县为2
+                .execute(new GsonCallback<AppPicturePassBean>(AppPicturePassBean.class) {
+                    @Override
+                    public void onSuccess(Response<AppPicturePassBean> response) {
+                        AppPicturePassBean body = response.body();
+                        System.out.println("图标测试：" + body.appPicture.toString());
+                        if (body.status.equals("200")) {
+                            SharedPreferencesHelper.setAppPicture(body.appPicture, getApplicationContext());
+                        } else if (body.status.equals("500")) {
+                            Toast.makeText(getApplicationContext(), "图标更新中，请重新登录哦。", Toast.LENGTH_SHORT).show();
+                        }
+
+                    }
+
+                    @Override
+                    public void onError(Response<AppPicturePassBean> response) {
+                        super.onError(response);
+                        System.out.println("登录测试4：网络失败");
+                        Toast.makeText(getApplicationContext(), getResources().getString(R.string.network_error), Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+
     }
 
 
@@ -171,6 +203,8 @@ public class LoginActivity extends AppCompatActivity {
                                 SharedPreferencesHelper.setUserPassWord(body.user.getPassword(), LoginActivity.this);
                                 SharedPreferencesHelper.setUserId(body.user.getId(), LoginActivity.this);
                                 SharedPreferencesHelper.setUserBean(body.user, LoginActivity.this);
+                                SharedPreferencesHelper.setDepartmentid(body.user.getDepartment_id(), LoginActivity.this);
+                                SharedPreferencesHelper.setUserAvatarUrl(body.user.getHead_portrait(), LoginActivity.this);
                                 SharedPreferencesHelper.setLoginStatus(true, LoginActivity.this);
                                 // SharedPreferencesHelper.setDrawBean(body);
 
@@ -262,36 +296,6 @@ public class LoginActivity extends AppCompatActivity {
     public void onClickForget() {
         Intent intent = new Intent(LoginActivity.this, ChangeActivity.class);
         startActivity(intent);
-    }
-
-    public void initPicture() {
-        OkGo.<AppPicturePassBean>post(UrlConstants.Picture)
-                .params("district_id", 2)//默认青冈县为2
-                .execute(new GsonCallback<AppPicturePassBean>(AppPicturePassBean.class) {
-                    @Override
-                    public void onSuccess(Response<AppPicturePassBean> response) {
-                        AppPicturePassBean body = response.body();
-                        System.out.println("图标测试：" + body.appPicture.toString());
-                        if (body.status.equals("200")) {
-                            //初次为version赋值并且缓存图标,如果版本号有所改变则重新缓存图标和Version的值，否则不用更新图标
-                            if ((SharedPreferencesHelper.getVersion(LoginActivity.this) == -1) ||
-                                    (SharedPreferencesHelper.getVersion(LoginActivity.this) != body.appPicture.getVersion())) {
-                                SharedPreferencesHelper.setVersion(body.appPicture.getVersion(), LoginActivity.this);
-                                SharedPreferencesHelper.setAppPicture(body.appPicture, LoginActivity.this);
-                            }
-                        } else if (body.status.equals("500")) {
-                            Toast.makeText(LoginActivity.this, "图标更新中，请重新登录哦。", Toast.LENGTH_SHORT).show();
-//                            finish();
-                        }
-                    }
-
-                    @Override
-                    public void onError(Response<AppPicturePassBean> response) {
-                        super.onError(response);
-                        System.out.println("登录测试4：网络失败");
-                        Toast.makeText(LoginActivity.this, getResources().getString(R.string.network_error), Toast.LENGTH_SHORT).show();
-                    }
-                });
     }
 
 

@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.HorizontalScrollView;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -23,19 +24,20 @@ import com.example.audioacquisition.R;
 import java.util.ArrayList;
 
 public class TeachActivity extends AppCompatActivity implements View.OnClickListener {
-    Toolbar toolbar;
 
     private HorizontalScrollView ths;
     private LinearLayout tliner;
     private ViewPager tview_pager;
     private String[] ttitles;
     int flag = 0;
+    private ImageView toolbar;
     private ArrayList<TextView> ttitlesView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teach);
+        toolbar = (ImageView) findViewById(R.id.toolbar);
         //初始化
         ths = (HorizontalScrollView) findViewById(R.id.teach_hs);
         tliner = (LinearLayout) findViewById(R.id.teach_liner);
@@ -49,6 +51,12 @@ public class TeachActivity extends AppCompatActivity implements View.OnClickList
 
         inittitles();
 
+        toolbar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
         tview_pager.setAdapter(new FragmentPagerAdapter(getSupportFragmentManager()) {
             @Override
             public Fragment getItem(int position) {
@@ -123,7 +131,7 @@ public class TeachActivity extends AppCompatActivity implements View.OnClickList
 
             //LinearLayout中的孩子的定位参数
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
-            layoutParams.setMargins(215, 10, 215, 10);//设置左上右下四个margin值;
+            layoutParams.setMargins(160, 30, 160, 30);//设置左上右下四个margin值;
             //layoutParams是让linearLayout知道如何摆放自己孩子的位置的;
             tliner.addView(textView, layoutParams);
             ttitlesView.add(textView);

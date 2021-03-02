@@ -35,7 +35,7 @@ import java.util.List;
  */
 
 public class TrafficFragment extends Fragment {
-    public static final int EXTERNAL_STORAGE_REQ_CODE = 10;
+    private static final int EXTERNAL_STORAGE_REQ_CODE = 10;
     private RecyclerView trafficrv;
     private RecyclerView securityrv;
     List<TrafficBean> trafficBeanList1 = new ArrayList<>();
@@ -81,16 +81,6 @@ public class TrafficFragment extends Fragment {
     }
 
     public void init1() {
-//        TrafficBean trafficBean1 = new TrafficBean("对机动车使用、变造号牌违法行为的现场处置",0);
-//        trafficBeanList1.add(trafficBean1);
-//        TrafficBean trafficBean2 = new TrafficBean("对非机动车不按交通信号行驶违法行为的现场处置",0);
-//        trafficBeanList1.add(trafficBean2);
-//        TrafficBean trafficBean3 = new TrafficBean("对不按规定使用安全带违法行为的现场处置",0);
-//        trafficBeanList1.add(trafficBean3);
-//        TrafficBean trafficBean4 = new TrafficBean("对未投保第三者强制保险车辆的现场处置",0);
-//        trafficBeanList1.add(trafficBean4);
-
-        System.out.println("类别为：" + 2);
         OkGo.<KindBean>post(UrlConstants.Teach)
                 .params("sceneSortId", 2)//类别
                 .execute(new GsonCallback<KindBean>(KindBean.class) {
@@ -98,12 +88,11 @@ public class TrafficFragment extends Fragment {
                     public void onSuccess(Response<KindBean> response) {
                         KindBean body = response.body();
                         if (body.status.equals("200")) {
-                            for (int i = 0; i < body.scene.size(); i++) {//最多访问一页的条数
-                                System.out.println("数据ID第" + i + "次输出:" + body.scene.get(i).getId());
-                                try {
+                            for (int i = 0; i < body.scene.size(); i++) {
+                                 try {
                                     TrafficBean trafficBean = new TrafficBean();
                                     trafficBean.setVideoname(body.scene.get(i).getScene_name());
-                                    trafficBean.setSceneSortId(body.scene.get(i).getScene_sort_id());
+                                    trafficBean.setSceneId(body.scene.get(i).getId());
                                     trafficBeanList1.add(trafficBean);
                                 } catch (Exception e) {
                                     e.printStackTrace();
@@ -131,15 +120,6 @@ public class TrafficFragment extends Fragment {
     }
 
     public void init2() {
-//        TrafficBean trafficBean1 = new TrafficBean("对跨越警戒线违法行为的现场处置");
-//        trafficBeanList2.add(trafficBean1);
-//        TrafficBean trafficBean2 = new TrafficBean("对盘查对象反复索要执法证件阻碍民警执法的现场处置");
-//        trafficBeanList2.add(trafficBean2);
-//        TrafficBean trafficBean3 = new TrafficBean("对行人翻越护栏的现场处置");
-//        trafficBeanList2.add(trafficBean3);
-//        TrafficBean trafficBean4 = new TrafficBean("对跨越警戒线违法行为的现场处置");
-//        trafficBeanList2.add(trafficBean4);
-
         System.out.println("类别为：" + 3);
         OkGo.<KindBean>post(UrlConstants.Teach)
                 .params("sceneSortId", 3)//类别
@@ -153,7 +133,7 @@ public class TrafficFragment extends Fragment {
                                 try {
                                     TrafficBean trafficBean = new TrafficBean();
                                     trafficBean.setVideoname(body.scene.get(i).getScene_name());
-                                    trafficBean.setSceneSortId(body.scene.get(i).getScene_sort_id());
+                                    trafficBean.setSceneId(body.scene.get(i).getId());
                                     trafficBeanList2.add(trafficBean);
                                 } catch (Exception e) {
                                     e.printStackTrace();

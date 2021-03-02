@@ -23,8 +23,12 @@ import com.lzy.okgo.model.Response;
 public class PracticeActivity extends AppCompatActivity {
     TextView solonum;
     TextView soloscore;
+    TextView soloscoresort;
+    TextView solonumsort;
     TextView totalnum;
     TextView totalscore;
+    TextView totalnumsort;
+    TextView totalscoresort;
 
     Toolbar toolbar;
 
@@ -36,6 +40,10 @@ public class PracticeActivity extends AppCompatActivity {
         soloscore = (TextView) findViewById(R.id.practice_solo_score);
         totalnum = (TextView) findViewById(R.id.practice_total_num);
         totalscore = (TextView) findViewById(R.id.practice_total_score);
+        solonumsort = (TextView) findViewById(R.id.practice_solo_numsort);
+        soloscoresort = (TextView) findViewById(R.id.practice_solo_scoresort);
+        totalnumsort = (TextView) findViewById(R.id.practice_total_numsort);
+        totalscoresort = (TextView) findViewById(R.id.practice_total_scoresort);
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -57,16 +65,21 @@ public class PracticeActivity extends AppCompatActivity {
                         PracticeBean body = response.body();
                         if (body.status.equals("200")) {
                             try {
-                                solonum.setText(body.userNum+" 次");
-                                soloscore.setText(body.userScore+" 分");
-                                totalnum.setText(body.departNum+" 次");
-                                totalscore.setText(body.departScore+" 分");
+                                solonum.setText(body.userNum + " 次");
+                                soloscore.setText(body.userScore + " 分");
+                                solonumsort.setText(body.userNumRank + " 名");
+                                soloscoresort.setText(body.userRank + " 名");
+                                totalnum.setText(body.departNum + " 次");
+                                totalscore.setText(body.departScore + " 分");
+                                totalnumsort.setText(body.departNumRank + " 名");
+                                totalscoresort.setText(body.departRank + " 名");
+
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }
 
                         } else if (body.status.equals("500")) {
-                            Toast.makeText(PracticeActivity.this, "信息有误，请重试~", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(PracticeActivity.this, "暂无训练信息~", Toast.LENGTH_SHORT).show();
                         }
 
                     }

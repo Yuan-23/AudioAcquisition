@@ -18,6 +18,9 @@ public interface SharedPreConstants {
     //密码
     String USER_PASSWORD = "USER_PASSWORD";
 
+    //头像
+    String USER_AVATAR_URL="USER_AVATAR_URL";
+
     //录音状态
     String RECORDSTATUS = "RECORDSTATUS";
 
@@ -42,6 +45,12 @@ public interface SharedPreConstants {
 
 
     String AREACODE = "AREACODE";
+
+    //部门
+    String DEPARTMENT="DEPARTMENT";
+
+//    //部门位置
+//    String DEPARTMENTNUM="DEPARTMENTNUM";
 
 }
 

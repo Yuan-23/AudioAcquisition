@@ -1,7 +1,9 @@
 package com.example.audioacquisition.Practice.fragment;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,22 +12,26 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.MediaController;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.VideoView;
 
 import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.audioacquisition.Core.data.UrlConstants;
 import com.example.audioacquisition.Core.helper.SharedPreferencesHelper;
 import com.example.audioacquisition.Core.network.okgo.GsonCallback;
+import com.example.audioacquisition.Practice.activity.FullActivity;
 import com.example.audioacquisition.Practice.adapter.DetailAdapter;
-import com.example.audioacquisition.Practice.adapter.MoniAdapter;
 import com.example.audioacquisition.Practice.bean.DetailBean;
 import com.example.audioacquisition.Practice.passbean.DetailPassBean;
 import com.example.audioacquisition.Practice.passbean.ScoreBean;
+import com.example.audioacquisition.Practice.passbean.TotalVideoBean;
 import com.example.audioacquisition.R;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.model.Response;
@@ -35,9 +41,8 @@ import java.util.List;
 
 
 public class HorizontalFragment extends Fragment {
-
+    private String VideoUrl = null;
     public static final int EXTERNAL_STORAGE_REQ_CODE = 10;
-    public HorizontalFragment mhorizontalFragment;
     private LinearLayout stagell1;
     private TextView stagename1;
     private ImageView stageimage1;
@@ -66,32 +71,10 @@ public class HorizontalFragment extends Fragment {
     private TextView fourthscore;
 
 
-    public HorizontalFragment mmhorizontalFragment;
-    private LinearLayout mstagell1;
-    private TextView mstagename1;
-    private ImageView mstageimage1;
-    private RecyclerView mstagerv1;
-    private LinearLayout mstagell2;
-    private TextView mstagename2;
-    private ImageView mstageimage2;
-    private RecyclerView mstagerv2;
-    private LinearLayout mstagell3;
-    private TextView mstagename3;
-    private ImageView mstageimage3;
-    private RecyclerView mstagerv3;
-    private LinearLayout mstagell4;
-    private TextView mstagename4;
-    private ImageView mstageimage4;
-    private RecyclerView mstagerv4;
-
-
     private Button mscoreBtn;
     private TextView mscoretotal;
-    private TextView mfirstscore;
-    private TextView msecondscore;
-    private TextView mthirdscore;
-    private TextView mfourthscore;
-
+    private VideoView mvideoView;
+    private ImageView mfull;
 
     //在fragment内部写一个静态方法,返回自己;供外部调用;
     public static Fragment getInstance(String title, int scenecode, int areacode) {
@@ -116,7 +99,7 @@ public class HorizontalFragment extends Fragment {
 
         Bundle bundle = getArguments();
         // 根据标题是否相同请求不同的接口;
-        if (bundle.getString("title").equals("练习")) {
+        if (bundle.getString("title").equals("语音收集")) {
 
             view = inflater.inflate(R.layout.fragment_horizontal, container, false);
 
@@ -159,36 +142,14 @@ public class HorizontalFragment extends Fragment {
             initdetail3(SceneCode);
             initdetail4(SceneCode);
 
-        } else if (bundle.getString("title").equals("模考")) {
+        } else if (bundle.getString("title").equals("模拟训练")) {
 
             view = inflater.inflate(R.layout.fragment_second, container, false);
 
             mscoreBtn = (Button) view.findViewById(R.id.moni_ifscore_btn);
             mscoretotal = (TextView) view.findViewById(R.id.moni_score_total);
-            mfirstscore = (TextView) view.findViewById(R.id.moni_first_score);
-            msecondscore = (TextView) view.findViewById(R.id.moni_second_score);
-            mthirdscore = (TextView) view.findViewById(R.id.moni_third_score);
-            mfourthscore = (TextView) view.findViewById(R.id.moni_fourth_score);
-
-            mstagerv1 = (RecyclerView) view.findViewById(R.id.moni_first_rv1);
-            mstageimage1 = (ImageView) view.findViewById(R.id.moni_first_image);
-            mstagell1 = (LinearLayout) view.findViewById(R.id.moni_first_ll);
-            mstagename1 = (TextView) view.findViewById(R.id.moni_first_name);
-
-            mstagerv2 = (RecyclerView) view.findViewById(R.id.moni_second_rv2);
-            mstageimage2 = (ImageView) view.findViewById(R.id.moni_second_image);
-            mstagell2 = (LinearLayout) view.findViewById(R.id.moni_second_ll);
-            mstagename2 = (TextView) view.findViewById(R.id.moni_second_name);
-
-            mstagerv3 = (RecyclerView) view.findViewById(R.id.moni_third_rv3);
-            mstageimage3 = (ImageView) view.findViewById(R.id.moni_third_image);
-            mstagell3 = (LinearLayout) view.findViewById(R.id.moni_third_ll);
-            mstagename3 = (TextView) view.findViewById(R.id.moni_third_name);
-
-            mstagerv4 = (RecyclerView) view.findViewById(R.id.moni_fourth_rv4);
-            mstageimage4 = (ImageView) view.findViewById(R.id.moni_fourth_image);
-            mstagell4 = (LinearLayout) view.findViewById(R.id.moni_fourth_ll);
-            mstagename4 = (TextView) view.findViewById(R.id.moni_fourth_name);
+            mvideoView = (VideoView) view.findViewById(R.id.moni_vv);
+            mfull = (ImageView) view.findViewById(R.id.moni_full);
 
             mscoreBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -199,32 +160,58 @@ public class HorizontalFragment extends Fragment {
 
             System.out.println("是模拟");
             Permit();//申请权限
-            initvideo1(SceneCode);//传参传一个场景编号
-            initvideo2(SceneCode);
-            initvideo3(SceneCode);
-            initvideo4(SceneCode);
+
+            init(SceneCode);//播放视频
+
+            mfull.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(getActivity(), FullActivity.class);
+                    intent.putExtra("full", VideoUrl);
+                    startActivity(intent);
+                }
+            });
+
+
         }
-//        else if (bundle.getString("title").equals("考核")) {
-//            LinearLayout test_ll;
-//
-//            view = inflater.inflate(R.layout.fragment_third, container, false);
-//
-//            test_ll = (LinearLayout) view.findViewById(R.id.second_test_ll);
-//
-//            test_ll.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View view) {
-//                    Intent intent = new Intent(getActivity(), TestActivity.class);
-//                    startActivity(intent);
-//                }
-//            });
-//
-//
-//        }
 
         return view;
     }
 
+    private void init(int scode) {//播放视频
+        OkGo.<TotalVideoBean>post(UrlConstants.TotalTestVideo)
+                .params("scene_id", scode)//场景编号
+                .execute(new GsonCallback<TotalVideoBean>(TotalVideoBean.class) {
+                    @Override
+                    public void onSuccess(Response<TotalVideoBean> response) {
+                        TotalVideoBean body = response.body();
+                        if (body.status.equals("200")) {
+                            //网络视频
+                            String videoUrl = body.scene.getVideo_url();
+                            VideoUrl = videoUrl;//传值
+                            Uri uri = Uri.parse(videoUrl);
+                            mvideoView.setVideoURI(uri);
+                            //创建MediaController对象
+                            MediaController mediaController = new MediaController(getContext());
+                            //VideoView与MediaController建立关联
+                            mvideoView.setMediaController(mediaController);
+                            //让VideoView获取焦点
+                            mvideoView.requestFocus();
+
+                        } else if (body.status.equals("500")) {
+                            Toast.makeText(getContext(), "信息有误，请检查登录情况~", Toast.LENGTH_SHORT).show();
+                        }
+
+                    }
+
+                    @Override
+                    public void onError(Response<TotalVideoBean> response) {
+                        super.onError(response);
+                        Toast.makeText(getContext(), getResources().getString(R.string.network_error), Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+    }
 
     public void ClickScore(int scenecode) {
         OkGo.<ScoreBean>post(UrlConstants.Score)
@@ -305,208 +292,208 @@ public class HorizontalFragment extends Fragment {
     }
 
 
-    public void initvideo1(int scode) {
-        System.out.println("scene_id=" + scode);
-
-        List<DetailBean> detailBeanList11 = new ArrayList<>();
-        OkGo.<DetailPassBean>post(UrlConstants.DivideVideo)
-                .params("scene_id", scode)//场景编号
-                .params("stage", 1)//第几阶段
-                .execute(new GsonCallback<DetailPassBean>(DetailPassBean.class) {
-                    @Override
-                    public void onSuccess(Response<DetailPassBean> response) {
-                        DetailPassBean body = response.body();
-                        if (body.status.equals("200")) {
-                            mstagename1.setText(body.sceneDetail.getStage_name());
-                            for (int i = 0; i < body.sceneDetail.getSceneDetailContents().size(); i++) {//最多访问一页的条数
-                                System.out.println("数据第" + i + "次输出:" + body.sceneDetail.getSceneDetailContents().get(i).getContent());
-
-                                try {
-                                    DetailBean detailBean = new DetailBean();
-                                    detailBean.setContext(body.sceneDetail.getSceneDetailContents().get(i).getVideo_url());
-                                    detailBean.setNumber(body.sceneDetail.getSceneDetailContents().get(i).getNumber());
-                                    detailBean.setScenecode(body.sceneDetail.getScene_id());
-                                    detailBean.setStage(body.sceneDetail.getStage());
-                                    detailBean.setSort(mcount++);
-                                    detailBeanList11.add(detailBean);
-                                } catch (Exception e) {
-                                    e.printStackTrace();
-                                }
-                            }
-
-                            MoniAdapter moniAdapter1 = new MoniAdapter(detailBeanList11, getActivity());
-                            mstagerv1.setAdapter(moniAdapter1); //dialog.show
-                            LinearLayoutManager layoutManager11 = new LinearLayoutManager(getContext());
-                            mstagerv1.setLayoutManager(layoutManager11);
-
-                        } else if (body.status.equals("500")) {
-                            Toast.makeText(getContext(), "信息有误，请检查登录情况~", Toast.LENGTH_SHORT).show();
-                        }
-
-                    }
-
-                    @Override
-                    public void onError(Response<DetailPassBean> response) {
-                        super.onError(response);
-                        System.out.println("测试1：网络失败");
-                        Toast.makeText(getContext(), getResources().getString(R.string.network_error), Toast.LENGTH_SHORT).show();
-                    }
-                });
-
-    }
-
-    public void initvideo2(int scode) {
-        System.out.println("scene_id=" + scode);
-
-        List<DetailBean> detailBeanList22 = new ArrayList<>();
-        OkGo.<DetailPassBean>post(UrlConstants.DivideVideo)
-                .params("scene_id", scode)//场景编号
-                .params("stage", 2)//第几阶段
-                .execute(new GsonCallback<DetailPassBean>(DetailPassBean.class) {
-                    @Override
-                    public void onSuccess(Response<DetailPassBean> response) {
-                        DetailPassBean body = response.body();
-                        if (body.status.equals("200")) {
-                            mstagename2.setText(body.sceneDetail.getStage_name());
-                            for (int i = 0; i < body.sceneDetail.getSceneDetailContents().size(); i++) {//最多访问一页的条数
-                                System.out.println("数据第" + i + "次输出:" + body.sceneDetail.getSceneDetailContents().get(i).getContent());
-
-                                try {
-                                    DetailBean detailBean = new DetailBean();
-                                    detailBean.setContext(body.sceneDetail.getSceneDetailContents().get(i).getVideo_url());
-                                    detailBean.setNumber(body.sceneDetail.getSceneDetailContents().get(i).getNumber());
-                                    detailBean.setScenecode(body.sceneDetail.getScene_id());
-                                    detailBean.setStage(body.sceneDetail.getStage());
-                                    detailBean.setSort(mcount++);
-                                    detailBeanList22.add(detailBean);
-                                } catch (Exception e) {
-                                    e.printStackTrace();
-                                }
-                            }
-
-                            MoniAdapter moniAdapter2 = new MoniAdapter(detailBeanList22, getActivity());
-                            mstagerv2.setAdapter(moniAdapter2); //dialog.show
-                            LinearLayoutManager layoutManager12 = new LinearLayoutManager(getContext());
-                            mstagerv2.setLayoutManager(layoutManager12);
-
-                        } else if (body.status.equals("500")) {
-                            Toast.makeText(getContext(), "信息有误，请检查登录情况~", Toast.LENGTH_SHORT).show();
-                        }
-
-                    }
-
-                    @Override
-                    public void onError(Response<DetailPassBean> response) {
-                        super.onError(response);
-                        System.out.println("测试1：网络失败");
-                        Toast.makeText(getContext(), getResources().getString(R.string.network_error), Toast.LENGTH_SHORT).show();
-                    }
-                });
-
-    }
-
-
-    public void initvideo3(int scode) {
-        System.out.println("scene_id=" + scode);
-
-        List<DetailBean> detailBeanList33 = new ArrayList<>();
-        OkGo.<DetailPassBean>post(UrlConstants.DivideVideo)
-                .params("scene_id", scode)//场景编号
-                .params("stage", 3)//第几阶段
-                .execute(new GsonCallback<DetailPassBean>(DetailPassBean.class) {
-                    @Override
-                    public void onSuccess(Response<DetailPassBean> response) {
-                        DetailPassBean body = response.body();
-                        if (body.status.equals("200")) {
-                            mstagename3.setText(body.sceneDetail.getStage_name());
-                            for (int i = 0; i < body.sceneDetail.getSceneDetailContents().size(); i++) {//最多访问一页的条数
-                                System.out.println("数据第" + i + "次输出:" + body.sceneDetail.getSceneDetailContents().get(i).getContent());
-
-                                try {
-                                    DetailBean detailBean = new DetailBean();
-                                    detailBean.setContext(body.sceneDetail.getSceneDetailContents().get(i).getVideo_url());
-                                    detailBean.setNumber(body.sceneDetail.getSceneDetailContents().get(i).getNumber());
-                                    detailBean.setScenecode(body.sceneDetail.getScene_id());
-                                    detailBean.setStage(body.sceneDetail.getStage());
-                                    detailBean.setSort(mcount++);
-                                    detailBeanList33.add(detailBean);
-                                } catch (Exception e) {
-                                    e.printStackTrace();
-                                }
-                            }
-
-                            MoniAdapter moniAdapter3 = new MoniAdapter(detailBeanList33, getActivity());
-                            mstagerv3.setAdapter(moniAdapter3); //dialog.show
-                            LinearLayoutManager layoutManager13 = new LinearLayoutManager(getContext());
-                            mstagerv3.setLayoutManager(layoutManager13);
-
-
-                        } else if (body.status.equals("500")) {
-                            Toast.makeText(getContext(), "信息有误，请检查登录情况~", Toast.LENGTH_SHORT).show();
-                        }
-
-                    }
-
-                    @Override
-                    public void onError(Response<DetailPassBean> response) {
-                        super.onError(response);
-                        System.out.println("测试1：网络失败");
-                        Toast.makeText(getContext(), getResources().getString(R.string.network_error), Toast.LENGTH_SHORT).show();
-                    }
-                });
-
-    }
-
-
-    public void initvideo4(int scode) {
-        System.out.println("scene_id=" + scode);
-
-        List<DetailBean> detailBeanList44 = new ArrayList<>();
-        OkGo.<DetailPassBean>post(UrlConstants.DivideVideo)
-                .params("scene_id", scode)//场景编号
-                .params("stage", 4)//第几阶段
-                .execute(new GsonCallback<DetailPassBean>(DetailPassBean.class) {
-                    @Override
-                    public void onSuccess(Response<DetailPassBean> response) {
-                        DetailPassBean body = response.body();
-                        if (body.status.equals("200")) {
-                            mstagename4.setText(body.sceneDetail.getStage_name());
-                            for (int i = 0; i < body.sceneDetail.getSceneDetailContents().size(); i++) {//最多访问一页的条数
-                                System.out.println("数据第" + i + "次输出:" + body.sceneDetail.getSceneDetailContents().get(i).getContent());
-
-                                try {
-                                    DetailBean detailBean = new DetailBean();
-                                    detailBean.setContext(body.sceneDetail.getSceneDetailContents().get(i).getVideo_url());
-                                    detailBean.setNumber(body.sceneDetail.getSceneDetailContents().get(i).getNumber());
-                                    detailBean.setScenecode(body.sceneDetail.getScene_id());
-                                    detailBean.setStage(body.sceneDetail.getStage());
-                                    detailBean.setSort(mcount++);
-                                    detailBeanList44.add(detailBean);
-                                } catch (Exception e) {
-                                    e.printStackTrace();
-                                }
-                            }
-
-                            MoniAdapter moniAdapter4 = new MoniAdapter(detailBeanList44, getActivity());
-                            mstagerv4.setAdapter(moniAdapter4); //dialog.show
-                            LinearLayoutManager layoutManager14 = new LinearLayoutManager(getContext());
-                            mstagerv4.setLayoutManager(layoutManager14);
-
-                        } else if (body.status.equals("500")) {
-                            Toast.makeText(getContext(), "信息有误，请检查登录情况~", Toast.LENGTH_SHORT).show();
-                        }
-
-                    }
-
-                    @Override
-                    public void onError(Response<DetailPassBean> response) {
-                        super.onError(response);
-                        System.out.println("测试1：网络失败");
-                        Toast.makeText(getContext(), getResources().getString(R.string.network_error), Toast.LENGTH_SHORT).show();
-                    }
-                });
-
-    }
+//    public void initvideo1(int scode) {
+//        System.out.println("scene_id=" + scode);
+//
+//        List<DetailBean> detailBeanList11 = new ArrayList<>();
+//        OkGo.<DetailPassBean>post(UrlConstants.DivideVideo)
+//                .params("scene_id", scode)//场景编号
+//                .params("stage", 1)//第几阶段
+//                .execute(new GsonCallback<DetailPassBean>(DetailPassBean.class) {
+//                    @Override
+//                    public void onSuccess(Response<DetailPassBean> response) {
+//                        DetailPassBean body = response.body();
+//                        if (body.status.equals("200")) {
+//                            mstagename1.setText(body.sceneDetail.getStage_name());
+//                            for (int i = 0; i < body.sceneDetail.getSceneDetailContents().size(); i++) {//最多访问一页的条数
+//                                System.out.println("数据第" + i + "次输出:" + body.sceneDetail.getSceneDetailContents().get(i).getContent());
+//
+//                                try {
+//                                    DetailBean detailBean = new DetailBean();
+//                                    detailBean.setContext(body.sceneDetail.getSceneDetailContents().get(i).getVideo_url());
+//                                    detailBean.setNumber(body.sceneDetail.getSceneDetailContents().get(i).getNumber());
+//                                    detailBean.setScenecode(body.sceneDetail.getScene_id());
+//                                    detailBean.setStage(body.sceneDetail.getStage());
+//                                    detailBean.setSort(mcount++);
+//                                    detailBeanList11.add(detailBean);
+//                                } catch (Exception e) {
+//                                    e.printStackTrace();
+//                                }
+//                            }
+//
+//                            MoniAdapter moniAdapter1 = new MoniAdapter(detailBeanList11, getActivity());
+//                            mstagerv1.setAdapter(moniAdapter1); //dialog.show
+//                            LinearLayoutManager layoutManager11 = new LinearLayoutManager(getContext());
+//                            mstagerv1.setLayoutManager(layoutManager11);
+//
+//                        } else if (body.status.equals("500")) {
+//                            Toast.makeText(getContext(), "信息有误，请检查登录情况~", Toast.LENGTH_SHORT).show();
+//                        }
+//
+//                    }
+//
+//                    @Override
+//                    public void onError(Response<DetailPassBean> response) {
+//                        super.onError(response);
+//                        System.out.println("测试1：网络失败");
+//                        Toast.makeText(getContext(), getResources().getString(R.string.network_error), Toast.LENGTH_SHORT).show();
+//                    }
+//                });
+//
+//    }
+//
+//    public void initvideo2(int scode) {
+//        System.out.println("scene_id=" + scode);
+//
+//        List<DetailBean> detailBeanList22 = new ArrayList<>();
+//        OkGo.<DetailPassBean>post(UrlConstants.DivideVideo)
+//                .params("scene_id", scode)//场景编号
+//                .params("stage", 2)//第几阶段
+//                .execute(new GsonCallback<DetailPassBean>(DetailPassBean.class) {
+//                    @Override
+//                    public void onSuccess(Response<DetailPassBean> response) {
+//                        DetailPassBean body = response.body();
+//                        if (body.status.equals("200")) {
+//                            mstagename2.setText(body.sceneDetail.getStage_name());
+//                            for (int i = 0; i < body.sceneDetail.getSceneDetailContents().size(); i++) {//最多访问一页的条数
+//                                System.out.println("数据第" + i + "次输出:" + body.sceneDetail.getSceneDetailContents().get(i).getContent());
+//
+//                                try {
+//                                    DetailBean detailBean = new DetailBean();
+//                                    detailBean.setContext(body.sceneDetail.getSceneDetailContents().get(i).getVideo_url());
+//                                    detailBean.setNumber(body.sceneDetail.getSceneDetailContents().get(i).getNumber());
+//                                    detailBean.setScenecode(body.sceneDetail.getScene_id());
+//                                    detailBean.setStage(body.sceneDetail.getStage());
+//                                    detailBean.setSort(mcount++);
+//                                    detailBeanList22.add(detailBean);
+//                                } catch (Exception e) {
+//                                    e.printStackTrace();
+//                                }
+//                            }
+//
+//                            MoniAdapter moniAdapter2 = new MoniAdapter(detailBeanList22, getActivity());
+//                            mstagerv2.setAdapter(moniAdapter2); //dialog.show
+//                            LinearLayoutManager layoutManager12 = new LinearLayoutManager(getContext());
+//                            mstagerv2.setLayoutManager(layoutManager12);
+//
+//                        } else if (body.status.equals("500")) {
+//                            Toast.makeText(getContext(), "信息有误，请检查登录情况~", Toast.LENGTH_SHORT).show();
+//                        }
+//
+//                    }
+//
+//                    @Override
+//                    public void onError(Response<DetailPassBean> response) {
+//                        super.onError(response);
+//                        System.out.println("测试1：网络失败");
+//                        Toast.makeText(getContext(), getResources().getString(R.string.network_error), Toast.LENGTH_SHORT).show();
+//                    }
+//                });
+//
+//    }
+//
+//
+//    public void initvideo3(int scode) {
+//        System.out.println("scene_id=" + scode);
+//
+//        List<DetailBean> detailBeanList33 = new ArrayList<>();
+//        OkGo.<DetailPassBean>post(UrlConstants.DivideVideo)
+//                .params("scene_id", scode)//场景编号
+//                .params("stage", 3)//第几阶段
+//                .execute(new GsonCallback<DetailPassBean>(DetailPassBean.class) {
+//                    @Override
+//                    public void onSuccess(Response<DetailPassBean> response) {
+//                        DetailPassBean body = response.body();
+//                        if (body.status.equals("200")) {
+//                            mstagename3.setText(body.sceneDetail.getStage_name());
+//                            for (int i = 0; i < body.sceneDetail.getSceneDetailContents().size(); i++) {//最多访问一页的条数
+//                                System.out.println("数据第" + i + "次输出:" + body.sceneDetail.getSceneDetailContents().get(i).getContent());
+//
+//                                try {
+//                                    DetailBean detailBean = new DetailBean();
+//                                    detailBean.setContext(body.sceneDetail.getSceneDetailContents().get(i).getVideo_url());
+//                                    detailBean.setNumber(body.sceneDetail.getSceneDetailContents().get(i).getNumber());
+//                                    detailBean.setScenecode(body.sceneDetail.getScene_id());
+//                                    detailBean.setStage(body.sceneDetail.getStage());
+//                                    detailBean.setSort(mcount++);
+//                                    detailBeanList33.add(detailBean);
+//                                } catch (Exception e) {
+//                                    e.printStackTrace();
+//                                }
+//                            }
+//
+//                            MoniAdapter moniAdapter3 = new MoniAdapter(detailBeanList33, getActivity());
+//                            mstagerv3.setAdapter(moniAdapter3); //dialog.show
+//                            LinearLayoutManager layoutManager13 = new LinearLayoutManager(getContext());
+//                            mstagerv3.setLayoutManager(layoutManager13);
+//
+//
+//                        } else if (body.status.equals("500")) {
+//                            Toast.makeText(getContext(), "信息有误，请检查登录情况~", Toast.LENGTH_SHORT).show();
+//                        }
+//
+//                    }
+//
+//                    @Override
+//                    public void onError(Response<DetailPassBean> response) {
+//                        super.onError(response);
+//                        System.out.println("测试1：网络失败");
+//                        Toast.makeText(getContext(), getResources().getString(R.string.network_error), Toast.LENGTH_SHORT).show();
+//                    }
+//                });
+//
+//    }
+//
+//
+//    public void initvideo4(int scode) {
+//        System.out.println("scene_id=" + scode);
+//
+//        List<DetailBean> detailBeanList44 = new ArrayList<>();
+//        OkGo.<DetailPassBean>post(UrlConstants.DivideVideo)
+//                .params("scene_id", scode)//场景编号
+//                .params("stage", 4)//第几阶段
+//                .execute(new GsonCallback<DetailPassBean>(DetailPassBean.class) {
+//                    @Override
+//                    public void onSuccess(Response<DetailPassBean> response) {
+//                        DetailPassBean body = response.body();
+//                        if (body.status.equals("200")) {
+//                            mstagename4.setText(body.sceneDetail.getStage_name());
+//                            for (int i = 0; i < body.sceneDetail.getSceneDetailContents().size(); i++) {//最多访问一页的条数
+//                                System.out.println("数据第" + i + "次输出:" + body.sceneDetail.getSceneDetailContents().get(i).getContent());
+//
+//                                try {
+//                                    DetailBean detailBean = new DetailBean();
+//                                    detailBean.setContext(body.sceneDetail.getSceneDetailContents().get(i).getVideo_url());
+//                                    detailBean.setNumber(body.sceneDetail.getSceneDetailContents().get(i).getNumber());
+//                                    detailBean.setScenecode(body.sceneDetail.getScene_id());
+//                                    detailBean.setStage(body.sceneDetail.getStage());
+//                                    detailBean.setSort(mcount++);
+//                                    detailBeanList44.add(detailBean);
+//                                } catch (Exception e) {
+//                                    e.printStackTrace();
+//                                }
+//                            }
+//
+//                            MoniAdapter moniAdapter4 = new MoniAdapter(detailBeanList44, getActivity());
+//                            mstagerv4.setAdapter(moniAdapter4); //dialog.show
+//                            LinearLayoutManager layoutManager14 = new LinearLayoutManager(getContext());
+//                            mstagerv4.setLayoutManager(layoutManager14);
+//
+//                        } else if (body.status.equals("500")) {
+//                            Toast.makeText(getContext(), "信息有误，请检查登录情况~", Toast.LENGTH_SHORT).show();
+//                        }
+//
+//                    }
+//
+//                    @Override
+//                    public void onError(Response<DetailPassBean> response) {
+//                        super.onError(response);
+//                        System.out.println("测试1：网络失败");
+//                        Toast.makeText(getContext(), getResources().getString(R.string.network_error), Toast.LENGTH_SHORT).show();
+//                    }
+//                });
+//
+//    }
 
 
     public void initdetail1(int scode) {

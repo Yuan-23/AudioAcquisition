@@ -35,12 +35,10 @@
     <ImageView
         android:id="@+id/item_image"
         android:layout_width="0dp"
-        android:layout_marginRight="5dp"
+        android:layout_marginRight="10dp"
         android:layout_weight="1"
-        android:layout_height="25dp"
-        android:tint="@color/theme2"
-        android:layout_gravity="center_vertical"
-        app:srcCompat="@drawable/scene2">
+        android:layout_height="30dp"
+        android:layout_gravity="center_vertical">
 
     </ImageView>
 
