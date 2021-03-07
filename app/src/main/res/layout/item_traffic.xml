@@ -12,8 +12,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_margin="10dp"
-        android:maxLines="1"
-        android:ellipsize="end"
         android:textSize="16dp"
         android:textColor="@color/theme2"
         android:text="对跨越警戒线违法行为的现场处置">

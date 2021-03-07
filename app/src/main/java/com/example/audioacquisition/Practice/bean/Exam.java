@@ -15,6 +15,7 @@ public class Exam {
     private int count_flag; //一共有多少条语音要录
     private int exam_record_id; //地区考试记录id
     private User user;
+    private String dateUtil; //截止日期
 
     @Override
     public String toString() {
@@ -30,7 +31,16 @@ public class Exam {
                 ", count_flag=" + count_flag +
                 ", exam_record_id=" + exam_record_id +
                 ", user=" + user +
+                ", dateUtil='" + dateUtil + '\'' +
                 '}';
+    }
+
+    public String getDateUtil() {
+        return dateUtil;
+    }
+
+    public void setDateUtil(String dateUtil) {
+        this.dateUtil = dateUtil;
     }
 
     public User getUser() {

@@ -6,7 +6,7 @@ public class Scene {
     private int id; //主键
     private String scene_name; //场景名称
     private int scene_sort_id; //所属分类的id
-    private String video_url; //视频的地址
+    private String video_url; //视频的地址,,模考
     private String yuan_video_url; //原视频的地址
     private int stageNum; //该场景有多少个阶段
     private String standard_url; //评分标准的地址

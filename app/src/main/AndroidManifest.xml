@@ -20,7 +20,8 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Study.activity.OtherdetailActivity"></activity>
+        <activity android:name=".Study.activity.PolicydetailActivity"></activity>
+        <activity android:name=".Study.activity.OtherdetailActivity" />
         <activity android:name=".Study.activity.StudynewActivity" />
         <activity android:name=".Mine.activity.SuggestionActivity" />
         <activity android:name=".Fax.activity.FaxdetailActivity" />

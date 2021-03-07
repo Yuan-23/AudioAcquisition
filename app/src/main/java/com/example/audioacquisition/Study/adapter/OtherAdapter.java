@@ -23,14 +23,12 @@ public class OtherAdapter extends RecyclerView.Adapter<OtherAdapter.ViewHolder> 
     private View mview;
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView otv;
         ImageView oimg;
         TextView oname;
 
         private ViewHolder(View view) {
             super(view);
-            oname = (TextView) view.findViewById(R.id.item_other_name);
-            otv = (TextView) view.findViewById(R.id.item_other_tv);
+            oname = (TextView) view.findViewById(R.id.item_other_tv);
             oimg = (ImageView) view.findViewById(R.id.item_other_img);
         }
     }
@@ -54,7 +52,6 @@ public class OtherAdapter extends RecyclerView.Adapter<OtherAdapter.ViewHolder> 
 
         try {
             holder.oname.setText(otherBean.getOthername());
-            holder.otv.setText(otherBean.getOthercontent());
             Glide.with(mview.getContext())
                     .load(otherBean.getOtherimage())
                     .into(holder.oimg);
@@ -67,7 +64,7 @@ public class OtherAdapter extends RecyclerView.Adapter<OtherAdapter.ViewHolder> 
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(mview.getContext(), OtherdetailActivity.class);
-                intent.putExtra("id",otherBean.getOid());
+                intent.putExtra("id", otherBean.getOid());
                 startActivity(intent);
             }
         });

@@ -51,6 +51,7 @@ public class HorizontalActivity extends AppCompatActivity implements View.OnClic
         Intent intent = getIntent();
         int code = intent.getIntExtra("code", -1);
         int areacode = intent.getIntExtra("area", -1);
+
         inittitles();
 
         toolbar.setOnClickListener(new View.OnClickListener() {

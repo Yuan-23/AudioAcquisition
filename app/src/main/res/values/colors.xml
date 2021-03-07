@@ -16,6 +16,8 @@
     <color name="theme2">#0D90BF</color>
     <color name="theme3">#C0C0C0</color>
     <color name="snow2">#EEE9E9</color>
+
+    <color name="red">#FF3300</color>
     <!--    点击前后颜色-->
     <color name="clicked">#EEE9E9</color>
     <color name="noclick">#ffffff</color>

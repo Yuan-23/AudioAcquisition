@@ -65,7 +65,6 @@ public class TrafficFragment extends Fragment {
             init1();
 
 
-
         } else if (bundle.getString("T_title").equals("治安")) {
 
             view = inflater.inflate(R.layout.fragment_security, container, false);
@@ -89,9 +88,9 @@ public class TrafficFragment extends Fragment {
                         KindBean body = response.body();
                         if (body.status.equals("200")) {
                             for (int i = 0; i < body.scene.size(); i++) {
-                                 try {
+                                try {
                                     TrafficBean trafficBean = new TrafficBean();
-                                    trafficBean.setVideoname(body.scene.get(i).getScene_name());
+                                    trafficBean.setVideoname("（" + (i + 1) + "）" + body.scene.get(i).getScene_name());
                                     trafficBean.setSceneId(body.scene.get(i).getId());
                                     trafficBeanList1.add(trafficBean);
                                 } catch (Exception e) {
@@ -132,7 +131,7 @@ public class TrafficFragment extends Fragment {
                                 System.out.println("数据ID第" + i + "次输出:" + body.scene.get(i).getId());
                                 try {
                                     TrafficBean trafficBean = new TrafficBean();
-                                    trafficBean.setVideoname(body.scene.get(i).getScene_name());
+                                    trafficBean.setVideoname("（" + (i + 1) + "）" + body.scene.get(i).getScene_name());
                                     trafficBean.setSceneId(body.scene.get(i).getId());
                                     trafficBeanList2.add(trafficBean);
                                 } catch (Exception e) {

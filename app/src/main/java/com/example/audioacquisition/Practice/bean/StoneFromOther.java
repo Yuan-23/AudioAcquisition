@@ -6,16 +6,36 @@ public class StoneFromOther {
     private int type;
     private String file_url;
     private String title;
+    private String comment;
+    private String picture;
 
     @Override
     public String toString() {
         return "StoneFromOther{" +
                 "id=" + id +
                 ", district_id=" + district_id +
-                ", type='" + type + '\'' +
+                ", type=" + type +
                 ", file_url='" + file_url + '\'' +
                 ", title='" + title + '\'' +
+                ", comment='" + comment + '\'' +
+                ", picture='" + picture + '\'' +
                 '}';
+    }
+
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
+
+    public String getPicture() {
+        return picture;
+    }
+
+    public void setPicture(String picture) {
+        this.picture = picture;
     }
 
     public int getId() {

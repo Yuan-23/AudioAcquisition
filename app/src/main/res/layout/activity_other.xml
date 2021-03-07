@@ -38,14 +38,27 @@
 
             </androidx.appcompat.widget.Toolbar>
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/other_rv"
-                android:layout_margin="5dp"
+
+
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/other_viewpage"
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.001"
+                android:layout_margin="5dp">
+
+            </androidx.viewpager.widget.ViewPager>
+
+            <include layout="@layout/other" />
+
+            <FrameLayout
+                android:id="@+id/id_content"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="0dp"
+                android:layout_weight="1" >
 
+            </FrameLayout>
 
-            </androidx.recyclerview.widget.RecyclerView>
 
         </LinearLayout>
 

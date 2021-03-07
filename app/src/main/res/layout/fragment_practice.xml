@@ -70,74 +70,70 @@
             android:gravity="center"
             android:orientation="vertical">
 
-            <LinearLayout
+            <FrameLayout
                 android:id="@+id/practice_kind1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="250dp"
+                android:layout_height="250dp"
                 android:layout_margin="20dp"
-                android:background="@drawable/white_clicked_bg"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/practice_kind1_tx"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_margin="20dp"
-                    android:background="@drawable/stage_bg"
-                    android:gravity="center"
-                    android:text="交 通 执 法 类"
-                    android:textColor="@color/theme2"
-                    android:textSize="18dp"
-                    android:textStyle="bold">
-
-                </TextView>
+                android:background="@drawable/white_clicked_bg">
 
                 <ImageView
                     android:id="@+id/practice_jiaotong"
-                    android:layout_width="130dp"
-                    android:layout_height="130dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:layout_gravity="center"
-                    android:layout_marginBottom="20dp"
-                    app:srcCompat="@drawable/chaosu">
-
+                    android:scaleType="center"
+                    android:src="@drawable/chaosu">
 
                 </ImageView>
 
-            </LinearLayout>
+                <TextView
+                    android:id="@+id/practice_kind1_tx"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal|top"
+                    android:layout_marginTop="5dip"
+                    android:text="交 通 执 行 类"
+                    android:textColor="@color/red"
+                    android:textSize="18dp"
+                    android:textStyle="bold">
 
-            <LinearLayout
+
+                </TextView>
+
+            </FrameLayout>
+
+            <FrameLayout
                 android:id="@+id/practice_kind2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="250dp"
+                android:layout_height="250dp"
                 android:layout_margin="20dp"
-                android:background="@drawable/white_clicked_bg"
-                android:orientation="vertical">
+                android:background="@drawable/white_clicked_bg">
+
+                <ImageView
+                    android:id="@+id/practice_zhian"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:scaleType="center"
+                    android:src="@drawable/jubu">
+
+                </ImageView>
 
                 <TextView
                     android:id="@+id/practice_kind2_tx"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_margin="20dp"
-                    android:background="@drawable/stage_bg"
-                    android:gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal|top"
+                    android:layout_marginTop="5dip"
                     android:text="治 安 执 法 类"
-                    android:textColor="@color/theme2"
+                    android:textColor="@color/red"
                     android:textSize="18dp"
                     android:textStyle="bold">
 
                 </TextView>
 
-                <ImageView
-                    android:id="@+id/practice_zhian"
-                    android:layout_width="130dp"
-                    android:layout_height="130dp"
-                    android:layout_gravity="center"
-                    android:layout_marginBottom="20dp"
-                    app:srcCompat="@drawable/jubu">
-
-                </ImageView>
-
-            </LinearLayout>
+            </FrameLayout>
 
         </LinearLayout>
 

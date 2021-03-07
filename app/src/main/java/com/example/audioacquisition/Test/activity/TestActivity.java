@@ -29,19 +29,22 @@ public class TestActivity extends AppCompatActivity {
         });
         tcertain = (TextView) findViewById(R.id.test_certain);
 
+        Intent intent = getIntent();
+        int scene = intent.getIntExtra("sceneid", -1);
+
+
         tcertain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(TestActivity.this, ExamActivity.class);
+                intent.putExtra("sceneId", scene);
                 startActivity(intent);
                 finish();
             }
         });
 
 
-
     }
-
 
 
 }

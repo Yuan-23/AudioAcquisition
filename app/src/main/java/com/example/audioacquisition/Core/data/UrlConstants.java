@@ -13,8 +13,8 @@ public interface UrlConstants {
     String Detail = MY_BASE_URL + "/VoiceAssessment/user/selectSceneDetail";
     //获取整个考核视频视频
     String TotalTestVideo = MY_BASE_URL + "/VoiceAssessment/user/selectWholeVideo";
-    //获取分步骤视频
-    String DivideVideo = MY_BASE_URL + "/VoiceAssessment/user/selectPartVideo";
+    //    //获取分步骤视频
+//    String DivideVideo = MY_BASE_URL + "/VoiceAssessment/user/selectPartVideo";
     //上传录音
     String PassVideo = MY_BASE_URL + "/VoiceAssessment/user/acceptFirstVoice";
     //获取语音
@@ -35,8 +35,8 @@ public interface UrlConstants {
     String Teach = MY_BASE_URL + "/VoiceAssessment/user/selectSceneLearn";
     //情景教学获取对应的完整教学视频
     String TeachVideo = MY_BASE_URL + "/VoiceAssessment/user/selectSceneDetailLearn";
-    //他山之石
-    String Other = MY_BASE_URL + "";
+    //查看他山之石
+    String Other = MY_BASE_URL + "/VoiceAssessment/user/otherStone";
 
     //获取图标
     String Picture = MY_BASE_URL + "/VoiceAssessment/user/appUpload";
@@ -58,13 +58,19 @@ public interface UrlConstants {
     //一线传真详情
     String FaxDetail = MY_BASE_URL + "/VoiceAssessment/user/selectVideoToTeacherDetail";
     //意见反馈
-    String Suggestion=MY_BASE_URL+"/VoiceAssessment/user/feedback";
+    String Suggestion = MY_BASE_URL + "/VoiceAssessment/user/feedback";
 
     //我的学习推荐
-    String StudyNew=MY_BASE_URL+"/VoiceAssessment/user/selectMyLearnRecommend";
+    String StudyNew = MY_BASE_URL + "/VoiceAssessment/user/selectMyLearnRecommend";
     //我的学习推荐详情
-    String StudyNewDetail=MY_BASE_URL+"/VoiceAssessment/user/selectMyLearnRecommendDetail";
+    String StudyNewDetail = MY_BASE_URL + "/VoiceAssessment/user/selectMyLearnRecommendDetail";
 
     //他山之石详情
-    String OtherDetail = MY_BASE_URL + "";
+    String OtherDetail = MY_BASE_URL + "/VoiceAssessment/user/otherStoneDetail";
+
+    //政策法规
+    String Policy = MY_BASE_URL + "/VoiceAssessment/user/selectPolicyRule";
+
+    //政策法规详情
+    String PolicyDetail = MY_BASE_URL + "/VoiceAssessment/user/selectPolicyRuleDetail";
 }

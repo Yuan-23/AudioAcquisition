@@ -83,44 +83,12 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
                     android:layout_marginTop="10dp"
+                    android:layout_marginRight="20dp"
                     android:layout_marginBottom="10dp"
                     android:background="@drawable/other_bg_3d"
                     android:orientation="horizontal">
 
-                    <LinearLayout
-                        android:id="@+id/study_11"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_margin="5dp"
-                        android:layout_weight="2.5"
-                        android:background="@drawable/white_clicked_bg"
-                        android:gravity="center"
-                        android:orientation="vertical">
-
-                        <ImageView
-                            android:layout_width="45dp"
-                            android:layout_height="45dp"
-                            android:layout_margin="5dp"
-                            android:tint="@color/theme2"
-                            app:srcCompat="@drawable/jiti">
-
-                        </ImageView>
-
-                        <TextView
-                            android:layout_width="45dp"
-                            android:layout_height="20dp"
-                            android:ellipsize="end"
-                            android:maxLines="1"
-                            android:text="情景教学"
-                            android:textColor="@color/theme2"
-                            android:textSize="11dp">
-
-                        </TextView>
-
-                    </LinearLayout>
 
                     <LinearLayout
                         android:id="@+id/study_12"
@@ -148,6 +116,39 @@
                             android:ellipsize="end"
                             android:maxLines="1"
                             android:text="政策法规"
+                            android:textColor="@color/theme2"
+                            android:textSize="11dp">
+
+                        </TextView>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/study_11"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="5dp"
+                        android:layout_weight="2.5"
+                        android:background="@drawable/white_clicked_bg"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="45dp"
+                            android:layout_height="45dp"
+                            android:layout_margin="5dp"
+                            android:tint="@color/theme2"
+                            app:srcCompat="@drawable/jiti">
+
+                        </ImageView>
+
+                        <TextView
+                            android:layout_width="45dp"
+                            android:layout_height="20dp"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:text="情景教学"
                             android:textColor="@color/theme2"
                             android:textSize="11dp">
 
@@ -197,7 +198,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
-                      android:layout_marginBottom="5dp"
+                    android:layout_marginBottom="5dp"
                     android:orientation="horizontal">
 
                     <ImageView

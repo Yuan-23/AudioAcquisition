@@ -2,14 +2,18 @@ package com.example.audioacquisition.Core.fragment;
 
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
+import android.os.AsyncTask;
 import android.os.Bundle;
 
+import androidx.annotation.DrawableRes;
 import androidx.fragment.app.Fragment;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
@@ -26,12 +30,15 @@ import com.example.audioacquisition.R;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.model.Response;
 
+import java.io.IOException;
+import java.net.URL;
+
 //训练中心
 
 public class PracticeFragment extends Fragment {
     private SwipeRefreshLayout mswipeRefreshLayout;
-    LinearLayout kind1;
-    LinearLayout kind2;
+    FrameLayout kind1;
+    FrameLayout kind2;
     ImageView jiaotong;
     ImageView zhian;
 
@@ -41,8 +48,8 @@ public class PracticeFragment extends Fragment {
 
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_practice, container, false);
-        kind1 = (LinearLayout) view.findViewById(R.id.practice_kind1);
-        kind2 = (LinearLayout) view.findViewById(R.id.practice_kind2);
+        kind1 = (FrameLayout) view.findViewById(R.id.practice_kind1);
+        kind2 = (FrameLayout) view.findViewById(R.id.practice_kind2);
         jiaotong = (ImageView) view.findViewById(R.id.practice_jiaotong);
         zhian = (ImageView) view.findViewById(R.id.practice_zhian);
 
@@ -65,7 +72,7 @@ public class PracticeFragment extends Fragment {
         });
 
 
-        mswipeRefreshLayout = (SwipeRefreshLayout)  view.findViewById(R.id.practice_swipe);
+        mswipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.practice_swipe);
         // 设置下拉圆圈上的颜色，蓝色、绿色
         mswipeRefreshLayout.setColorSchemeResources(android.R.color.holo_blue_light, android.R.color.holo_blue_dark);
         mswipeRefreshLayout.setDistanceToTriggerSync(100);// 设置手指在屏幕下拉多少距离会触发下拉刷新
@@ -106,6 +113,9 @@ public class PracticeFragment extends Fragment {
                             SharedPreferencesHelper.setAppPicture(body.appPicture, getContext());
 
 
+
+
+
                         } else if (body.status.equals("500")) {
                             Toast.makeText(getContext(), "图标更新中，请重新登录哦。", Toast.LENGTH_SHORT).show();
                         }
@@ -128,6 +138,8 @@ public class PracticeFragment extends Fragment {
 
 
     }
+
+
 
 
 }

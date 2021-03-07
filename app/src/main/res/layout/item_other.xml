@@ -9,7 +9,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:background="@drawable/white_clicked_bg"
         android:orientation="vertical">
 
@@ -29,44 +29,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
+            android:layout_gravity="center"
+            android:gravity="center"
             android:text="该视频由XXX警官在XX地执行XXXX公务时所录制，该视频XXX XXX"
             android:textColor="@color/theme2"
             android:textSize="14dp">
 
         </TextView>
 
-        <LinearLayout
-            android:id="@+id/item_other_namell"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:gravity="right"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_gravity="center"
-                android:tint="@color/yellow"
-                app:srcCompat="@drawable/gongan5">
-
-            </ImageView>
-
-            <TextView
-                android:id="@+id/item_other_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginLeft="5dp"
-                android:ellipsize="end"
-                android:maxLines="1"
-                android:text="XXX公安局"
-                android:textColor="@color/theme"
-                android:textSize="12dp">
-
-            </TextView>
-
-        </LinearLayout>
     </LinearLayout>
 
 </LinearLayout>

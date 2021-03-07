@@ -26,10 +26,12 @@ public class TestAdapter extends RecyclerView.Adapter<TestAdapter.ViewHolder> {
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView testtv;
+        TextView testtime;
 
         private ViewHolder(View view) {
             super(view);
             testtv = (TextView) view.findViewById(R.id.item_test_name);
+            testtime = (TextView) view.findViewById(R.id.item_test_time);
         }
     }
 
@@ -54,11 +56,12 @@ public class TestAdapter extends RecyclerView.Adapter<TestAdapter.ViewHolder> {
         final TestBean testBean = testBeanList.get(position);
 
         holder.testtv.setText(testBean.getTest_name());
-
+        holder.testtime.setText("截止日期：" + testBean.getTest_time());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(mview.getContext(), TestActivity.class);
+                intent.putExtra("sceneid",testBean.getSceneid());
                 startActivity(intent);
             }
         });
